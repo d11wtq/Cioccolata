@@ -1,0 +1,102 @@
+// !$*UTF8*$!
+{
+	0867D690FE84028FC02AAC07 /* Project object */ = {
+		activeArchitecturePreference = i386;
+		activeBuildConfigurationName = Debug;
+		activeTarget = 8DC2EF4F0486A6940098B216 /* Cioccolata-Mac */;
+		codeSenseManager = 8345243D117C7BA20042DD00 /* Code sense */;
+		perUserDictionary = {
+			PBXConfiguration.PBXFileTableDataSource3.PBXFileTableDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					833,
+					20,
+					48,
+					43,
+					43,
+					20,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+					PBXFileDataSource_Target_ColumnID,
+				);
+			};
+			PBXConfiguration.PBXTargetDataSource.PBXTargetDataSource = {
+				PBXFileTableDataSourceColumnSortingDirectionKey = "-1";
+				PBXFileTableDataSourceColumnSortingKey = PBXFileDataSource_Filename_ColumnID;
+				PBXFileTableDataSourceColumnWidthsKey = (
+					20,
+					793,
+					60,
+					20,
+					48,
+					43,
+					43,
+				);
+				PBXFileTableDataSourceColumnsKey = (
+					PBXFileDataSource_FiletypeID,
+					PBXFileDataSource_Filename_ColumnID,
+					PBXTargetDataSource_PrimaryAttribute,
+					PBXFileDataSource_Built_ColumnID,
+					PBXFileDataSource_ObjectSize_ColumnID,
+					PBXFileDataSource_Errors_ColumnID,
+					PBXFileDataSource_Warnings_ColumnID,
+				);
+			};
+			PBXPerProjectTemplateStateSaveDate = 293370773;
+			PBXWorkspaceStateSaveDate = 293370773;
+		};
+		perUserProjectItems = {
+			83452451117C83CE0042DD00 /* PBXBookmark */ = 83452451117C83CE0042DD00 /* PBXBookmark */;
+			83452452117C83CE0042DD00 /* PBXTextBookmark */ = 83452452117C83CE0042DD00 /* PBXTextBookmark */;
+		};
+		sourceControlManager = 8345243C117C7BA20042DD00 /* Source Control */;
+		userBuildSettings = {
+		};
+	};
+	32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */ = {
+		uiCtxt = {
+			sepNavIntBoundsRect = "{{0, 0}, {1011, 396}}";
+			sepNavSelRange = "{63, 0}";
+			sepNavVisRange = "{0, 156}";
+		};
+	};
+	8345243C117C7BA20042DD00 /* Source Control */ = {
+		isa = PBXSourceControlManager;
+		fallbackIsa = XCSourceControlManager;
+		isSCMEnabled = 0;
+		scmConfiguration = {
+			repositoryNamesForRoots = {
+				"" = "";
+			};
+		};
+	};
+	8345243D117C7BA20042DD00 /* Code sense */ = {
+		isa = PBXCodeSenseManager;
+		indexTemplatePath = "";
+	};
+	83452451117C83CE0042DD00 /* PBXBookmark */ = {
+		isa = PBXBookmark;
+		fRef = 32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */;
+	};
+	83452452117C83CE0042DD00 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */;
+		name = "Cioccolata_Prefix.pch: 2";
+		rLen = 0;
+		rLoc = 63;
+		rType = 0;
+		vrLen = 156;
+		vrLoc = 0;
+	};
+	8DC2EF4F0486A6940098B216 /* Cioccolata-Mac */ = {
+		activeExec = 0;
+	};
+}
