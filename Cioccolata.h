@@ -7,6 +7,4 @@
  *
  */
 
-#import <Foundation/Foundation.h>
-
 #import "CWHelloWorld.h"

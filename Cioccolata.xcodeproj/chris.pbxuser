@@ -62,6 +62,9 @@
 			831C9EC7117DEAD1009C0E6D /* PBXTextBookmark */ = 831C9EC7117DEAD1009C0E6D /* PBXTextBookmark */;
 			831C9EC8117DEAD1009C0E6D /* PBXTextBookmark */ = 831C9EC8117DEAD1009C0E6D /* PBXTextBookmark */;
 			831C9EC9117DEAD1009C0E6D /* PBXTextBookmark */ = 831C9EC9117DEAD1009C0E6D /* PBXTextBookmark */;
+			831C9EFE117E7533009C0E6D /* PBXTextBookmark */ = 831C9EFE117E7533009C0E6D /* PBXTextBookmark */;
+			831C9EFF117E7533009C0E6D /* PBXTextBookmark */ = 831C9EFF117E7533009C0E6D /* PBXTextBookmark */;
+			831C9F00117E7533009C0E6D /* PBXTextBookmark */ = 831C9F00117E7533009C0E6D /* PBXTextBookmark */;
 			834525EB117D981F0042DD00 = 834525EB117D981F0042DD00 /* PBXTextBookmark */;
 			834525EC117D981F0042DD00 = 834525EC117D981F0042DD00 /* PBXTextBookmark */;
 			8345260C117D9ECE0042DD00 = 8345260C117D9ECE0042DD00 /* PBXTextBookmark */;
@@ -84,7 +87,7 @@
 		fRef = 83452607117D9E910042DD00 /* Cioccolata.h */;
 		name = "Cioccolata.h: 13";
 		rLen = 0;
-		rLoc = 201;
+		rLoc = 166;
 		rType = 0;
 		vrLen = 201;
 		vrLoc = 0;
@@ -127,6 +130,36 @@
 		rLoc = 241;
 		rType = 0;
 		vrLen = 248;
+		vrLoc = 0;
+	};
+	831C9EFE117E7533009C0E6D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 834525DA117D97570042DD00 /* CWHelloWorld.m */;
+		name = "CWHelloWorld.m: 16";
+		rLen = 0;
+		rLoc = 241;
+		rType = 0;
+		vrLen = 248;
+		vrLoc = 0;
+	};
+	831C9EFF117E7533009C0E6D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 83452607117D9E910042DD00 /* Cioccolata.h */;
+		name = "Cioccolata.h: 13";
+		rLen = 0;
+		rLoc = 166;
+		rType = 0;
+		vrLen = 201;
+		vrLoc = 0;
+	};
+	831C9F00117E7533009C0E6D /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 83452607117D9E910042DD00 /* Cioccolata.h */;
+		name = "Cioccolata.h: 9";
+		rLen = 0;
+		rLoc = 140;
+		rType = 0;
+		vrLen = 166;
 		vrLoc = 0;
 	};
 	8345243C117C7BA20042DD00 /* Source Control */ = {
@@ -180,8 +213,8 @@
 	83452607117D9E910042DD00 /* Cioccolata.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1011, 390}}";
-			sepNavSelRange = "{201, 0}";
-			sepNavVisRange = "{0, 201}";
+			sepNavSelRange = "{140, 0}";
+			sepNavVisRange = "{0, 166}";
 		};
 	};
 	8345260C117D9ECE0042DD00 /* PBXTextBookmark */ = {
@@ -209,7 +242,7 @@
 		fRef = 83452607117D9E910042DD00 /* Cioccolata.h */;
 		name = "Cioccolata.h: 13";
 		rLen = 0;
-		rLoc = 201;
+		rLoc = 166;
 		rType = 0;
 		vrLen = 201;
 		vrLoc = 0;

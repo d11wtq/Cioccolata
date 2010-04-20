@@ -272,15 +272,16 @@
 								<string>32C88DFF0371C24200C91783</string>
 								<string>0867D69AFE84028FC02AAC07</string>
 								<string>1058C7B2FEA5585E11CA2CBB</string>
+								<string>034768DFFF38A50411DB9C8B</string>
 								<string>1C37FBAC04509CD000000102</string>
+								<string>831C9EBA117DEABE009C0E6D</string>
 								<string>1C37FABC05509CD000000102</string>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>3</integer>
-									<integer>1</integer>
-									<integer>0</integer>
+									<integer>15</integer>
+									<integer>14</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
@@ -319,7 +320,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>CWHelloWorld.m</string>
+								<string>Cioccolata.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -327,17 +328,17 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>CWHelloWorld.m</string>
+										<string>Cioccolata.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>831C9EC9117DEAD1009C0E6D</string>
+										<string>831C9F00117E7533009C0E6D</string>
 										<key>history</key>
 										<array>
-											<string>831C9EC5117DEAD1009C0E6D</string>
 											<string>831C9EC6117DEAD1009C0E6D</string>
 											<string>831C9EC7117DEAD1009C0E6D</string>
-											<string>831C9EC8117DEAD1009C0E6D</string>
+											<string>831C9EFE117E7533009C0E6D</string>
+											<string>831C9EFF117E7533009C0E6D</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
