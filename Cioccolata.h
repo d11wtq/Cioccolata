@@ -1,12 +1,12 @@
 /*
- *  Cioccolata_Prefix.pch
- *  CioccolataTest
+ *  Cioccolata.h
+ *  Cioccolata
  *
  *  Created by Chris Corbyn on 20/04/10.
  *  Copyright 2010 Chris Corbyn. All rights reserved.
  *
  */
 
-#ifdef __OBJC__
-    #import <Foundation/Foundation.h>
-#endif
+#import <Foundation/Foundation.h>
+
+#import "CWHelloWorld.h"
