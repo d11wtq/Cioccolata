@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		834525DB117D97570042DD00 /* CWHelloWorld.h in Headers */ = {isa = PBXBuildFile; fileRef = 834525D9117D97570042DD00 /* CWHelloWorld.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		834525DC117D97570042DD00 /* CWHelloWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 834525DA117D97570042DD00 /* CWHelloWorld.m */; };
+		831CA039117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		831CA03A117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */; };
+		831CA048117F20B6009C0E6D /* libfcgi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CA047117F20B6009C0E6D /* libfcgi.dylib */; };
+		831CA0C6117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */; };
+		831CA150117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */; };
+		831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */; };
+		831CA172117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */; };
 		834525E6117D98120042DD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
@@ -18,8 +23,13 @@
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata_Prefix.pch; sourceTree = "<group>"; };
-		834525D9117D97570042DD00 /* CWHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CWHelloWorld.h; sourceTree = "<group>"; };
-		834525DA117D97570042DD00 /* CWHelloWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CWHelloWorld.m; sourceTree = "<group>"; };
+		831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptLoop.h; sourceTree = "<group>"; };
+		831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptLoop.m; sourceTree = "<group>"; };
+		831CA047117F20B6009C0E6D /* libfcgi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfcgi.dylib; path = /usr/lib/libfcgi.dylib; sourceTree = "<absolute>"; };
+		831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerThread.h; sourceTree = "<group>"; };
+		831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerThread.m; sourceTree = "<group>"; };
+		831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerOperation.h; sourceTree = "<group>"; };
+		831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerOperation.m; sourceTree = "<group>"; };
 		83452607117D9E910042DD00 /* Cioccolata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata.h; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -31,6 +41,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				834525E6117D98120042DD00 /* Foundation.framework in Frameworks */,
+				831CA048117F20B6009C0E6D /* libfcgi.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,8 +89,12 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				834525D9117D97570042DD00 /* CWHelloWorld.h */,
-				834525DA117D97570042DD00 /* CWHelloWorld.m */,
+				831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */,
+				831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */,
+				831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */,
+				831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */,
+				831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */,
+				831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -87,6 +102,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				831CA047117F20B6009C0E6D /* libfcgi.dylib */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -115,8 +131,10 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834525DB117D97570042DD00 /* CWHelloWorld.h in Headers */,
 				83452608117D9E910042DD00 /* Cioccolata.h in Headers */,
+				831CA039117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h in Headers */,
+				831CA0C6117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h in Headers */,
+				831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,7 +194,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834525DC117D97570042DD00 /* CWHelloWorld.m in Sources */,
+				831CA03A117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m in Sources */,
+				831CA150117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m in Sources */,
+				831CA172117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
