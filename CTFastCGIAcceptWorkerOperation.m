@@ -26,6 +26,8 @@
 }
 
 - (void)main {
+	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+	
 	int accept = 0;
 	
 	FCGX_Request request;
@@ -51,7 +53,11 @@
 		FCGX_FPrintF(request.out, "Hello World! I'm thread #%d", count);
 		
 		FCGX_Finish_r(&request);
+		
+		[pool drain]; // Request finished, autoreleased objects not needed
 	}
+	
+	[pool release];
 }
 
 @end

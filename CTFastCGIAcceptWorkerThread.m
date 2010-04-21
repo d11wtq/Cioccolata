@@ -23,11 +23,9 @@
 }
 
 - (void)main {
-	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSOperation *worker = [[CTFastCGIAcceptWorkerOperation alloc] initWithCount:count];
 	[worker main];
 	[worker release];
-	[pool release];
 }
 
 @end
