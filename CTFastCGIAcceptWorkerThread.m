@@ -23,6 +23,7 @@
 }
 
 - (void)main {
+	CTRegisterCurrentThread();
 	NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 	NSOperation *worker = [[CTFastCGIAcceptWorkerOperation alloc] initWithCount:count];
 	[worker main];

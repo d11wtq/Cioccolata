@@ -6,6 +6,7 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
+#include "NSThread+GNUStep.h"
 
 @interface CTFastCGIAcceptWorkerThread : NSThread {
 	NSInteger count;

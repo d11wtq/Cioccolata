@@ -14,6 +14,7 @@
 		831CA150117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */; };
 		831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */; };
 		831CA172117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */; };
+		831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA24511814742009C0E6D /* NSThread+GNUStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		834525E6117D98120042DD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
@@ -30,6 +31,7 @@
 		831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerThread.m; sourceTree = "<group>"; };
 		831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerOperation.h; sourceTree = "<group>"; };
 		831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerOperation.m; sourceTree = "<group>"; };
+		831CA24511814742009C0E6D /* NSThread+GNUStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+GNUStep.h"; sourceTree = "<group>"; };
 		83452607117D9E910042DD00 /* Cioccolata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata.h; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +91,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				831CA24F11816427009C0E6D /* CrossPlatformAdditions */,
 				831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */,
 				831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */,
 				831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */,
@@ -124,6 +127,14 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		831CA24F11816427009C0E6D /* CrossPlatformAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				831CA24511814742009C0E6D /* NSThread+GNUStep.h */,
+			);
+			name = CrossPlatformAdditions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -135,6 +146,7 @@
 				831CA039117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h in Headers */,
 				831CA0C6117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h in Headers */,
 				831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */,
+				831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
