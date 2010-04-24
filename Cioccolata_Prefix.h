@@ -1,5 +1,5 @@
 /*
- *  Cioccolata_Prefix.pch
+ *  Cioccolata_Prefix.h
  *  CioccolataTest
  *
  *  Created by Chris Corbyn on 20/04/10.

@@ -6,6 +6,7 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
+
 /**
  * Listens for incoming requests via fastcgi and dispatches them to the front controller.
  * 
@@ -28,7 +29,7 @@
  * 
  * The default value is 100.
  */
-- (id)initWithMaxConcurrentOperationCount:(int)operationCount;
+- (id)initWithMaxConcurrentOperationCount:(NSInteger)count;
 
 #pragma mark -
 #pragma mark Handling fastcgi requests

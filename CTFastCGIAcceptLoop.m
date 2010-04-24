@@ -29,13 +29,13 @@
 	return self;
 }
 
-- (id)initWithMaxConcurrentOperationCount:(NSInteger)operationCount {
+- (id)initWithMaxConcurrentOperationCount:(NSInteger)count {
 	self = [self init];
 	if (!self) {
 		return nil;
 	}
 	
-	self.maxConcurrentOperationCount = operationCount;
+	self.maxConcurrentOperationCount = count;
 	
 	return self;
 }
