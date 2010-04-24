@@ -9,11 +9,13 @@
 #include <fcgi_config.h>
 #include <fcgiapp.h>
 
-@interface CTFastCGIAcceptWorkerOperation : NSOperation {
+@interface CTFastCGIAcceptWorkerOperation : NSObject {
 	NSInteger count;
 }
 
 - (id)initWithCount:(NSInteger)c;
+
+- (void)main;
 
 - (void)dumpEnv:(FCGX_Request)request;
 
