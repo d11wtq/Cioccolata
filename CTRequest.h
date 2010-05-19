@@ -6,8 +6,6 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
-#include <fcgi_config.h>
-#include <fcgiapp.h>
 
 /**
  * An HTTP request.
@@ -22,10 +20,13 @@
 
 
 /**
- * Initialize a request based on the given request.
+ * Initialize a new request based on the given request.
  */
 - (id)initWithRequest:(CTRequest *)request;
 
+/**
+ * Initialize a request using the given environment variables.
+ */
 - (id)initWithEnv:(NSDictionary *)env;
 
 @end
