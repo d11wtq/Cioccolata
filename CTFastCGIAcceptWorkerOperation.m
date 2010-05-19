@@ -9,6 +9,8 @@
 #include <fcgi_config.h>
 
 #import "CTFastCGIAcceptWorkerOperation.h"
+#import	 "CTRequest.h"
+#import	 "CTRequest+FCGX.h"
 
 #include <fcgiapp.h>
 
@@ -28,8 +30,8 @@
 - (void)main {
 	int accept = 0;
 	
-	FCGX_Request request;
-	FCGX_InitRequest(&request, 0, 0);
+	FCGX_Request cgiRequest;
+	FCGX_InitRequest(&cgiRequest, 0, 0);
 	
 	for (;;) {
 		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -37,7 +39,7 @@
 		NSLock *acceptLock = [[NSLock alloc] init];
 		
 		[acceptLock lock];
-		accept = FCGX_Accept_r(&request);
+		accept = FCGX_Accept_r(&cgiRequest);
 		[acceptLock unlock];
 		[acceptLock release];
 		
@@ -46,27 +48,34 @@
 			break;
 		}
 		
-		FCGX_FPrintF(request.out,
+		CTRequest *httpRequest = [[CTRequest alloc] initWithFCGXRequest:cgiRequest];
+		
+		/*
+		 SomethingDispatcher
+		 -> FilterChain
+		 -> FrontController
+		 -> Controller
+		 -> Template
+		 -> Response
+		 */
+		
+		FCGX_FPrintF(cgiRequest.out,
 					 "Content-Type: text/plain\r\n"
 					 "\r\n");
 		
-		FCGX_FPrintF(request.out, "Hello World! I'm thread #%d\n", count);
+		FCGX_FPrintF(cgiRequest.out, "Hello World! I'm thread #%d\n", count);
 		
-		[self dumpEnv:request];
+		NSDictionary *env = [httpRequest env];
+		for (NSString *key in env) {
+			// FIXME: Is it safe to assume that all HTTP requests use US-ASCII?
+			FCGX_FPrintF(cgiRequest.out, "%s => %s\n",
+						 [key cStringUsingEncoding:NSASCIIStringEncoding],
+						 [[env objectForKey:key] cStringUsingEncoding:NSASCIIStringEncoding]);
+		}
 		
-		FCGX_Finish_r(&request);
+		FCGX_Finish_r(&cgiRequest);
 		
-		[pool drain]; // Request finished, autoreleased objects not needed
-	}
-}
-
-- (void)dumpEnv:(FCGX_Request)request {
-	NSLog(@"Dumping env");
-	
-	FCGX_FPrintF(request.out, "%s:\n", "Request Environment");
-	for( ; *(request.envp) != NULL; request.envp++) {
-		NSLog(@"In env loop");
-		FCGX_FPrintF(request.out, "%s\n", *(request.envp));
+		[pool drain];
 	}
 }
 

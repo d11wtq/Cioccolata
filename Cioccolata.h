@@ -9,3 +9,4 @@
 
 #import "CTFastCGIAcceptLoop.h"
 #import "NSThread+GNUStep.h"
+#import "CTRequest.h"

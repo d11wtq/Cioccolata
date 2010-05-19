@@ -52,14 +52,10 @@
 		[worker release];
 	}
 	
-	// Run an operation on the main thread else we terminate
+	// Run an operation on the main thread to keep it working
 	NSOperation *worker = [[CTFastCGIAcceptWorkerOperation alloc] initWithCount:c];
 	[worker main];
 	[worker release];
-}
-
-- (void)dealloc {
-	[super dealloc];
 }
 
 @end
