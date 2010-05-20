@@ -1,0 +1,49 @@
+Cioccolata - A FastCGI embedded framework for creating web applications in Objective-C
+--------------------------------------------------------------------------------------
+
+This project is as yet barely even born, but the intention is to create a simple web-
+application container based around Cocoa, capable of running either on a Mac, on Linux
+via GNUstep or Cocotron, or on Windows via Cocotron.
+
+I've always questioned why C-based web environments do not exist, and the response
+always seems to be "they're just not very web like".  Well, as an experiment I'd like
+to see just how much of my web-development experience I can bring to the objective-C
+environment.  I believe that Objective-C would be a welcome addition to the
+web-developer's toolbox, offering a great deal of functionality, including of course,
+the potential to bridge with interpreted languages such as Ruby, PHP and Python if
+wanted/needed.
+
+With the advent of HipHop (Facebook's PHP to C compiler) it's clear that people are
+looking for more efficient new ways to run applications on the web.  Cioccolata could
+fill that void.
+
+Initial goals (next few months):
+
+  - Create the controller subsystem on the most flexible way possible
+    - Ruby-like routing
+    - Pre-dispatcher request-filtering
+    - Action controllers / ViewControllers
+  - Create an abstraction around MGTemplateEngine to provide a django-like templating
+    system
+    - Template inheritance
+    - Filters
+    - Clear promotion of separation of concerns
+
+Up-coming goals:
+
+  - Multiple-DBMS abstraction layer (Active Record or Datamapper?)
+    - Table inheritance
+    - Object-persistence
+  - Create a solid data-input and validation framework
+    - I'm still yet to see one that I like but can borrow bits and pieces from others.
+
+Once the base framework (each of the M-V-C components is in place, I will build something
+of reasonable scale, designed to support being run in a cloud, using this as a way to
+guage feature additions and needed refactors.
+
+Biggest issues forseen?
+
+  - Creating the multi-DBMS framework in an abstract manner will be very time-consuming
+    - Will keep looking for existing solutions
+    - It should be two layers... one for the DB-access, the other for ORM.
+    - Compiling and deployment, given that many web-developers use Windows and deploy to *nix etc
