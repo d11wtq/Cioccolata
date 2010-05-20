@@ -37,7 +37,7 @@
 		[envDict setObject:envValue forKey:envName];
 	}
 	
-	self = [self initWithEnv:envDict];
+	self = [self initWithDictionary:envDict];
 	
 	[envDict release];
 	

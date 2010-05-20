@@ -27,16 +27,16 @@
 }
 
 - (id)initWithRequest:(CTRequest *)request {
-	return [self initWithEnv:request.env];
+	return [self initWithDictionary:request.env];
 }
 
-- (id)initWithEnv:(NSDictionary *)envData {
+- (id)initWithDictionary:(NSDictionary *)dictionary {
 	self = [self init];
 	if (!self) {
 		return nil;
 	}
 	
-	env = [[NSDictionary alloc] initWithDictionary:envData];
+	env = [[NSDictionary alloc] initWithDictionary:dictionary];
 	
 	return self;
 }

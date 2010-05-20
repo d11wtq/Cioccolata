@@ -27,6 +27,6 @@
 /**
  * Initialize a request using the given environment variables.
  */
-- (id)initWithEnv:(NSDictionary *)env;
+- (id)initWithDictionary:(NSDictionary *)dictionary;
 
 @end
