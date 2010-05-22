@@ -96,8 +96,7 @@
 		NSRange eqRange = [pair rangeOfString:@"="];
 		
 		NSString *encodedKey;
-		NSString *key;
-		NSMutableArray *subKeys = [NSMutableArray array];
+		NSMutableArray *keys = [NSMutableArray array];
 		id value;
 		
 		// Parameter does not have an explicit value
@@ -117,7 +116,9 @@
 		
 		// Parameter contains braces; parse out the key(s)
 		if (NSNotFound != braceOpen.location) {
-			key = [[encodedKey substringToIndex:braceOpen.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			[keys addObject:[[encodedKey substringToIndex:braceOpen.location]
+							 stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+			
 			do {
 				if ([encodedKey length] <= braceOpen.location + 1) {
 					break;
@@ -130,48 +131,36 @@
 					break;
 				}
 				
-				[subKeys addObject:[[encodedKey substringToIndex:braceClose.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+				[keys addObject:[[encodedKey substringToIndex:braceClose.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
 				
 				braceOpen = [encodedKey rangeOfString:@"["];
 			} while (NSNotFound != braceOpen.location);
 		} else {
-			key = [encodedKey stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			[keys addObject:[encodedKey stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
 		}
 		
-		// If adding to a dictionary
-		if ([subKeys count] > 0) {
-			
-			// Consider consolidating the main key into a "keys" array
-			id existingDictionary = [params objectForKey:key];
-			if (![existingDictionary isKindOfClass:[NSDictionary class]]) {
-				existingDictionary = [NSMutableDictionary dictionary];
-				[params setObject:existingDictionary forKey:key];
+		NSMutableDictionary *currentContainer = params;
+		
+		NSInteger index = 0, count = [keys count];
+		
+		for (id key in keys) {
+			if (++index == count) {
+				break; // The last key is always a node, set after the loop
 			}
 			
-			// existingDictionary = params.q
-			
-			NSInteger index = 0, count = [subKeys count];
-			
-			for (id subKey in subKeys) {
-				if (++index == count) {
-					break; // The end key is a node
-				}
-				
-				id subDictionary = [existingDictionary objectForKey:subKey];
-				if (![subDictionary isKindOfClass:[NSDictionary class]]) {
-					subDictionary = [NSMutableDictionary dictionary];
-					[existingDictionary setObject:subDictionary forKey:subKey];
-				}
-				
-				existingDictionary = subDictionary;
+			// Insert a child if not already present
+			id childContainer = [currentContainer objectForKey:key];
+			if (![childContainer isKindOfClass:[NSDictionary class]]) {
+				childContainer = [NSMutableDictionary dictionary];
+				[currentContainer setObject:childContainer forKey:key];
 			}
 			
-			// existingDictionary = params.q.foo
-			
-			[existingDictionary setObject:value forKey:[subKeys lastObject]];
-		} else {
-			[params setObject:value forKey:key];
+			// Walk deeper
+			currentContainer = childContainer;
 		}
+		
+		// Finally apply the value inside it's designated container
+		[currentContainer setObject:value forKey:[keys lastObject]];
 	}
 	
 	return params;
