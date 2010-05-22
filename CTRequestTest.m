@@ -62,12 +62,12 @@
 	[req release];
 }
 
-- (void)testGETParametersOccuringMultipleTimesBecomeDictionaries {
-	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a&c=3&q=b", @"QUERY_STRING", nil];
+- (void)testGETParametersCanHaveNamedDictionaryKeys {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo]=a&c=3&q[bar]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
 	NSDictionary *q = [req param:@"q"];
-	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
-	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:1]], @"Parameter q should be a dictionary with key 1 = b");
+	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
+	GHAssertEqualStrings(@"b", [q objectForKey:@"bar"], @"Parameter q should be a dictionary with key bar = b");
 	[req release];
 }
 

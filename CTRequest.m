@@ -45,6 +45,8 @@
 	if (nil == path) {
 		NSLog(@"WARNING: FastCGI application loaded without SCRIPT_NAME, falling back to /");
 		path = @"/";
+	} else if ([path isEqual:@""]) {
+		path = @"/";
 	}
 	
 	query = [env objectForKey:@"QUERY_STRING"];
@@ -52,10 +54,14 @@
 		query = @"";
 	}
 	
-	NSString *uri = [NSString stringWithFormat:@"%@%@%@",
+	NSString *queryWithLeadingQuestionMark = @"";
+	if (![query isEqual:@""]) {
+		queryWithLeadingQuestionMark = [NSString stringWithFormat:@"?%@", query];
+	}
+	
+	NSString *uri = [NSString stringWithFormat:@"%@%@",
 					 [path stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
-					 ([query isEqual:@""]) ? @"" : @"?",
-					 query];
+					 queryWithLeadingQuestionMark];
 	
 	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://127.0.0.1%@", uri]];
 	
@@ -81,20 +87,25 @@
 #pragma mark Utility methods
 
 - (NSDictionary *)parseQuery:(NSString *)queryString {
+	// TODO: Move this to a category on NSDictionary -dictionaryByParsingQueryString:withEncoding:
+	
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	NSArray *pairs = [queryString componentsSeparatedByString:@"&"];
 	
 	for (NSString *pair in pairs) {
 		NSRange eqRange = [pair rangeOfString:@"="];
 		
+		NSString *encodedKey;
 		NSString *key;
+		NSMutableArray *subKeys = [NSMutableArray array];
 		id value;
 		
+		// Parameter does not have an explicit value
 		if (eqRange.location == NSNotFound) {
-			key = [pair stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			encodedKey = pair;
 			value = @"";
 		} else {
-			key = [[pair substringToIndex:eqRange.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			encodedKey = [pair substringToIndex:eqRange.location];
 			if ([pair length] > eqRange.location + 1) {
 				value = [[pair substringFromIndex:eqRange.location + 1] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 			} else {
@@ -102,19 +113,65 @@
 			}
 		}
 		
-		// Parameter already exists, it must be a dictionary
-		if (nil != [params objectForKey:key]) {
-			id existingValue = [params objectForKey:key];
-			if (![existingValue isKindOfClass:[NSDictionary class]]) {
-				existingValue = [NSMutableDictionary dictionaryWithObjectsAndKeys:existingValue, [NSNumber numberWithInt:0], nil];
-			}
-			
-			[existingValue setObject:value forKey:[NSNumber numberWithInt:[existingValue count]]];
-			
-			value = existingValue;
+		NSRange braceOpen = [encodedKey rangeOfString:@"["];
+		
+		// Parameter contains braces; parse out the key(s)
+		if (NSNotFound != braceOpen.location) {
+			key = [[encodedKey substringToIndex:braceOpen.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			do {
+				if ([encodedKey length] <= braceOpen.location + 1) {
+					break;
+				}
+				
+				encodedKey = [encodedKey substringFromIndex:braceOpen.location + 1];
+				
+				NSRange braceClose = [encodedKey rangeOfString:@"]"];
+				if (NSNotFound == braceClose.location) {
+					break;
+				}
+				
+				[subKeys addObject:[[encodedKey substringToIndex:braceClose.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+				
+				braceOpen = [encodedKey rangeOfString:@"["];
+			} while (NSNotFound != braceOpen.location);
+		} else {
+			key = [encodedKey stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
 		}
 		
-		[params setObject:value forKey:key];
+		// If adding to a dictionary
+		if ([subKeys count] > 0) {
+			
+			// Consider consolidating the main key into a "keys" array
+			id existingDictionary = [params objectForKey:key];
+			if (![existingDictionary isKindOfClass:[NSDictionary class]]) {
+				existingDictionary = [NSMutableDictionary dictionary];
+				[params setObject:existingDictionary forKey:key];
+			}
+			
+			// existingDictionary = params.q
+			
+			NSInteger index = 0, count = [subKeys count];
+			
+			for (id subKey in subKeys) {
+				if (++index == count) {
+					break; // The end key is a node
+				}
+				
+				id subDictionary = [existingDictionary objectForKey:subKey];
+				if (![subDictionary isKindOfClass:[NSDictionary class]]) {
+					subDictionary = [NSMutableDictionary dictionary];
+					[existingDictionary setObject:subDictionary forKey:subKey];
+				}
+				
+				existingDictionary = subDictionary;
+			}
+			
+			// existingDictionary = params.q.foo
+			
+			[existingDictionary setObject:value forKey:[subKeys lastObject]];
+		} else {
+			[params setObject:value forKey:key];
+		}
 	}
 	
 	return params;

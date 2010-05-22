@@ -46,4 +46,7 @@ Biggest issues forseen?
   - Creating the multi-DBMS framework in an abstract manner will be very time-consuming
     - Will keep looking for existing solutions
     - It should be two layers... one for the DB-access, the other for ORM.
-    - Compiling and deployment, given that many web-developers use Windows and deploy to *nix etc
+  - Compiling and deployment, given that many web-developers use Windows and deploy to *nix etc
+    - I'd like to come up with a reasonable architecture for cross-compiling with low-effort/
+      understanding required from the developer. Current thoughts simply require Cocotron and
+      an SSH (or other) connection to the target machine.

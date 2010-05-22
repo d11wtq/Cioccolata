@@ -17,7 +17,6 @@
 		831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA24511814742009C0E6D /* NSThread+GNUStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		831CA28E1182BD35009C0E6D /* CTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA28C1182BD35009C0E6D /* CTRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		831CA28F1182BD35009C0E6D /* CTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA28D1182BD35009C0E6D /* CTRequest.m */; };
-		834525E6117D98120042DD00 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8369003111A3E99500FE0772 /* CTRequest+FCGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */; };
 		8369003211A3E99500FE0772 /* CTRequest+FCGX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369003011A3E99500FE0772 /* CTRequest+FCGX.m */; };
@@ -27,7 +26,7 @@
 		837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
 		837D43A611A6ACC40072F242 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D43A511A6ACC40072F242 /* CTRequestTest.m */; };
 		837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
-		837D440411A6B6B60072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
+		837D46A411A7A4A80072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D46A011A7A4A10072F242 /* Foundation.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata_Prefix.pch; sourceTree = "<group>"; };
 		831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptLoop.h; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 		8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTRequest+FCGX.h"; sourceTree = "<group>"; };
 		8369003011A3E99500FE0772 /* CTRequest+FCGX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTRequest+FCGX.m"; sourceTree = "<group>"; };
 		8369005F11A4129500FE0772 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
-		836900F911A4371F00FE0772 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		837D436411A6A9280072F242 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
 		837D438C11A6AA300072F242 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D438E11A6AA300072F242 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
@@ -82,6 +79,7 @@
 		837D43A411A6ACC40072F242 /* CTRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestTest.h; sourceTree = "<group>"; };
 		837D43A511A6ACC40072F242 /* CTRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestTest.m; sourceTree = "<group>"; };
 		837D43F111A6B56A0072F242 /* GHUnitTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitTest_Prefix.pch; sourceTree = "<group>"; };
+		837D46A011A7A4A10072F242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -91,7 +89,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837D440411A6B6B60072F242 /* Foundation.framework in Frameworks */,
 				837D439811A6AACE0072F242 /* GHUnit.framework in Frameworks */,
 				837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */,
 			);
@@ -101,7 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				834525E6117D98120042DD00 /* Foundation.framework in Frameworks */,
+				837D46A411A7A4A80072F242 /* Foundation.framework in Frameworks */,
 				831CA048117F20B6009C0E6D /* libfcgi.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,9 +167,8 @@
 			isa = PBXGroup;
 			children = (
 				837D436411A6A9280072F242 /* GHUnit.framework */,
-				836900F911A4371F00FE0772 /* SenTestingKit.framework */,
-				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
 				831CA047117F20B6009C0E6D /* libfcgi.dylib */,
+				837D46A011A7A4A10072F242 /* Foundation.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";

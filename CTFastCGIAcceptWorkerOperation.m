@@ -51,12 +51,7 @@
 		CTRequest *httpRequest = [[CTRequest alloc] initWithFCGXRequest:cgiRequest];
 		
 		/*
-		 SomethingDispatcher
-		 -> FilterChain
-		 -> FrontController
-		 -> Controller
-		 -> Template
-		 -> Response
+		 [[[CTRequestDispatcher alloc] initWithRequest:req] dispatch];
 		 */
 		
 		FCGX_FPrintF(cgiRequest.out,
