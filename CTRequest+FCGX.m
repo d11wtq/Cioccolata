@@ -15,7 +15,6 @@
 	NSMutableDictionary *envDict = [[NSMutableDictionary alloc] init];
 	
 	for( ; *(request.envp) != NULL; request.envp++) {
-		// FIXME: Is it safe to assume that all HTTP requests use US-ASCII?
 		NSString *envString = [NSString stringWithCString:*(request.envp) encoding:NSASCIIStringEncoding];
 		
 		NSRange eqRange = [envString rangeOfString:@"="];

@@ -21,16 +21,18 @@
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8369003111A3E99500FE0772 /* CTRequest+FCGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */; };
 		8369003211A3E99500FE0772 /* CTRequest+FCGX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369003011A3E99500FE0772 /* CTRequest+FCGX.m */; };
-		8369006E11A4133900FE0772 /* CTRequestTest.h in Headers */ = {isa = PBXBuildFile; fileRef = 8369006C11A4133900FE0772 /* CTRequestTest.h */; };
-		836900B511A4189E00FE0772 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369006D11A4133900FE0772 /* CTRequestTest.m */; };
-		8369010111A4372D00FE0772 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 836900F911A4371F00FE0772 /* SenTestingKit.framework */; };
-		836901F811A4402D00FE0772 /* Cioccolata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
-		8369020A11A440D400FE0772 /* Cioccolata.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
+		837D439811A6AACE0072F242 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D436411A6A9280072F242 /* GHUnit.framework */; };
+		837D439A11A6AAEB0072F242 /* GHUnit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 837D436411A6A9280072F242 /* GHUnit.framework */; };
+		837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D439E11A6ABA00072F242 /* GHUnitTestMain.m */; };
+		837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
+		837D43A611A6ACC40072F242 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D43A511A6ACC40072F242 /* CTRequestTest.m */; };
+		837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
+		837D440411A6B6B60072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0867D69BFE84028FC02AAC07 /* Foundation.framework */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		836900DB11A4350000FE0772 /* PBXContainerItemProxy */ = {
+		837D43A011A6ABE80072F242 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -40,13 +42,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8369020911A440C700FE0772 /* Copy Frameworks */ = {
+		837D439C11A6AAFB0072F242 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8369020A11A440D400FE0772 /* Cioccolata.framework in Copy Frameworks */,
+				837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */,
+				837D439A11A6AAEB0072F242 /* GHUnit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -71,21 +74,26 @@
 		8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTRequest+FCGX.h"; sourceTree = "<group>"; };
 		8369003011A3E99500FE0772 /* CTRequest+FCGX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTRequest+FCGX.m"; sourceTree = "<group>"; };
 		8369005F11A4129500FE0772 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
-		8369006C11A4133900FE0772 /* CTRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestTest.h; sourceTree = "<group>"; };
-		8369006D11A4133900FE0772 /* CTRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestTest.m; sourceTree = "<group>"; };
-		836900AB11A4186100FE0772 /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		836900F911A4371F00FE0772 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		837D436411A6A9280072F242 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
+		837D438C11A6AA300072F242 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		837D438E11A6AA300072F242 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
+		837D439E11A6ABA00072F242 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
+		837D43A411A6ACC40072F242 /* CTRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestTest.h; sourceTree = "<group>"; };
+		837D43A511A6ACC40072F242 /* CTRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestTest.m; sourceTree = "<group>"; };
+		837D43F111A6B56A0072F242 /* GHUnitTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitTest_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		836900A811A4186100FE0772 /* Frameworks */ = {
+		837D438A11A6AA300072F242 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836901F811A4402D00FE0772 /* Cioccolata.framework in Frameworks */,
-				8369010111A4372D00FE0772 /* SenTestingKit.framework in Frameworks */,
+				837D440411A6B6B60072F242 /* Foundation.framework in Frameworks */,
+				837D439811A6AACE0072F242 /* GHUnit.framework in Frameworks */,
+				837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				8DC2EF5B0486A6940098B216 /* Cioccolata.framework */,
-				836900AB11A4186100FE0772 /* Test.octest */,
+				837D438C11A6AA300072F242 /* Tests.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -120,6 +128,7 @@
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				8369005F11A4129500FE0772 /* Test-Info.plist */,
+				837D438E11A6AA300072F242 /* Tests-Info.plist */,
 			);
 			name = Cioccolata;
 			sourceTree = "<group>";
@@ -145,6 +154,7 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				837D43F011A6B52C0072F242 /* HTTP */,
 				831CA24F11816427009C0E6D /* CrossPlatformAdditions */,
 				831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */,
 				831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */,
@@ -152,10 +162,6 @@
 				831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */,
 				831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */,
 				831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */,
-				831CA28C1182BD35009C0E6D /* CTRequest.h */,
-				831CA28D1182BD35009C0E6D /* CTRequest.m */,
-				8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */,
-				8369003011A3E99500FE0772 /* CTRequest+FCGX.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -163,6 +169,9 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				837D436411A6A9280072F242 /* GHUnit.framework */,
+				836900F911A4371F00FE0772 /* SenTestingKit.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
 				831CA047117F20B6009C0E6D /* libfcgi.dylib */,
 			);
 			name = "Linked Frameworks";
@@ -171,8 +180,6 @@
 		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
-				836900F911A4371F00FE0772 /* SenTestingKit.framework */,
 			);
 			name = "Other Frameworks";
 			sourceTree = "<group>";
@@ -180,8 +187,10 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				837D439E11A6ABA00072F242 /* GHUnitTestMain.m */,
 				32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */,
 				83452607117D9E910042DD00 /* Cioccolata.h */,
+				837D43F111A6B56A0072F242 /* GHUnitTest_Prefix.pch */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -197,10 +206,21 @@
 		8369006811A4131200FE0772 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8369006C11A4133900FE0772 /* CTRequestTest.h */,
-				8369006D11A4133900FE0772 /* CTRequestTest.m */,
+				837D43A411A6ACC40072F242 /* CTRequestTest.h */,
+				837D43A511A6ACC40072F242 /* CTRequestTest.m */,
 			);
 			name = Tests;
+			sourceTree = "<group>";
+		};
+		837D43F011A6B52C0072F242 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				831CA28C1182BD35009C0E6D /* CTRequest.h */,
+				831CA28D1182BD35009C0E6D /* CTRequest.m */,
+				8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */,
+				8369003011A3E99500FE0772 /* CTRequest+FCGX.m */,
+			);
+			name = HTTP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,32 +237,30 @@
 				831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */,
 				831CA28E1182BD35009C0E6D /* CTRequest.h in Headers */,
 				8369003111A3E99500FE0772 /* CTRequest+FCGX.h in Headers */,
-				8369006E11A4133900FE0772 /* CTRequestTest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		836900AA11A4186100FE0772 /* Test */ = {
+		837D438B11A6AA300072F242 /* Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 836900B311A4187F00FE0772 /* Build configuration list for PBXNativeTarget "Test" */;
+			buildConfigurationList = 837D439111A6AA310072F242 /* Build configuration list for PBXNativeTarget "Tests" */;
 			buildPhases = (
-				8369020911A440C700FE0772 /* Copy Frameworks */,
-				836900A611A4186100FE0772 /* Resources */,
-				836900A711A4186100FE0772 /* Sources */,
-				836900A811A4186100FE0772 /* Frameworks */,
-				836900A911A4186100FE0772 /* ShellScript */,
+				837D439C11A6AAFB0072F242 /* Copy Frameworks */,
+				837D438811A6AA300072F242 /* Resources */,
+				837D438911A6AA300072F242 /* Sources */,
+				837D438A11A6AA300072F242 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				836900DC11A4350000FE0772 /* PBXTargetDependency */,
+				837D43A111A6ABE80072F242 /* PBXTargetDependency */,
 			);
-			name = Test;
-			productName = Test;
-			productReference = 836900AB11A4186100FE0772 /* Test.octest */;
-			productType = "com.apple.product-type.bundle";
+			name = Tests;
+			productName = Tests;
+			productReference = 837D438C11A6AA300072F242 /* Tests.app */;
+			productType = "com.apple.product-type.application";
 		};
 		8DC2EF4F0486A6940098B216 /* Cioccolata */ = {
 			isa = PBXNativeTarget;
@@ -277,13 +295,13 @@
 			projectRoot = "";
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Cioccolata */,
-				836900AA11A4186100FE0772 /* Test */,
+				837D438B11A6AA300072F242 /* Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		836900A611A4186100FE0772 /* Resources */ = {
+		837D438811A6AA300072F242 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -300,28 +318,13 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		836900A911A4186100FE0772 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		836900A711A4186100FE0772 /* Sources */ = {
+		837D438911A6AA300072F242 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				836900B511A4189E00FE0772 /* CTRequestTest.m in Sources */,
+				837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */,
+				837D43A611A6ACC40072F242 /* CTRequestTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,10 +343,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		836900DC11A4350000FE0772 /* PBXTargetDependency */ = {
+		837D43A111A6ABE80072F242 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* Cioccolata */;
-			targetProxy = 836900DB11A4350000FE0772 /* PBXContainerItemProxy */;
+			targetProxy = 837D43A011A6ABE80072F242 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -369,6 +372,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -379,7 +383,7 @@
 				GCC_PREFIX_HEADER = Cioccolata_Prefix.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "@executable_path/../Frameworks";
+				INSTALL_PATH = "@rpath";
 				PRODUCT_NAME = Cioccolata;
 				SDKROOT = macosx10.5;
 				WRAPPER_EXTENSION = framework;
@@ -396,6 +400,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+					"\"$(SRCROOT)\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
@@ -434,57 +439,61 @@
 			};
 			name = Release;
 		};
-		836900AC11A4186100FE0772 /* Debug */ = {
+		837D438F11A6AA310072F242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "Test-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				GCC_PREFIX_HEADER = GHUnitTest_Prefix.pch;
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				OTHER_LDFLAGS = (
 					"-framework",
-					Cocoa,
+					Foundation,
 					"-framework",
-					SenTestingKit,
+					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = Test;
-				TEST_HOST = "";
-				WRAPPER_EXTENSION = octest;
+				PRODUCT_NAME = Tests;
 			};
 			name = Debug;
 		};
-		836900AD11A4186100FE0772 /* Release */ = {
+		837D439011A6AA310072F242 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				INFOPLIST_FILE = "Test-Info.plist";
-				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Tests-Info.plist";
+				INSTALL_PATH = "$(HOME)/Applications";
 				OTHER_LDFLAGS = (
 					"-framework",
-					Cocoa,
+					Foundation,
 					"-framework",
-					SenTestingKit,
+					AppKit,
 				);
 				PREBINDING = NO;
-				PRODUCT_NAME = Test;
-				WRAPPER_EXTENSION = octest;
+				PRODUCT_NAME = Tests;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -510,11 +519,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		836900B311A4187F00FE0772 /* Build configuration list for PBXNativeTarget "Test" */ = {
+		837D439111A6AA310072F242 /* Build configuration list for PBXNativeTarget "Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				836900AC11A4186100FE0772 /* Debug */,
-				836900AD11A4186100FE0772 /* Release */,
+				837D438F11A6AA310072F242 /* Debug */,
+				837D439011A6AA310072F242 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

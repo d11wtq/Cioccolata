@@ -1,0 +1,8 @@
+TODO List
+---------
+
+Shortcut macros for URL-decoding and encoding.
+Handle request encoding according to specification.
+Handle fetching GET, POST, PUT, DELETE parameters.
+Provide raw input stream.
+Dictionary of HTTP headers (what about naming?).

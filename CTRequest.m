@@ -12,7 +12,10 @@
 @implementation CTRequest
 
 @synthesize env;
+@synthesize url;
 @synthesize path;
+@synthesize query;
+@synthesize get;
 
 - (id)init {
 	self = [super init];
@@ -20,8 +23,8 @@
 		return nil;
 	}
 	
-	env = [NSDictionary dictionary];
 	path = @"/";
+	query = @"";
 	
 	return self;
 }
@@ -38,11 +41,93 @@
 	
 	env = [[NSDictionary alloc] initWithDictionary:dictionary];
 	
+	path = [env objectForKey:@"SCRIPT_NAME"];
+	if (nil == path) {
+		NSLog(@"WARNING: FastCGI application loaded without SCRIPT_NAME, falling back to /");
+		path = @"/";
+	}
+	
+	query = [env objectForKey:@"QUERY_STRING"];
+	if (nil == query) {
+		query = @"";
+	}
+	
+	NSString *uri = [NSString stringWithFormat:@"%@%@%@",
+					 [path stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+					 ([query isEqual:@""]) ? @"" : @"?",
+					 query];
+	
+	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://127.0.0.1%@", uri]];
+	
+	get = [[self parseQuery:query] retain];
+	
 	return self;
+}
+
+- (id)param:(NSString *)paramName {
+	id result = [self param:paramName method:@"GET"];
+	if (nil == result) {
+		result = [self param:paramName method:@"POST"];
+	}
+	
+	return result;
+}
+
+- (id)param:(NSString *)paramName method:(NSString *)method {
+	return [self.get objectForKey:paramName];
+}
+
+#pragma mark -
+#pragma mark Utility methods
+
+- (NSDictionary *)parseQuery:(NSString *)queryString {
+	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+	NSArray *pairs = [queryString componentsSeparatedByString:@"&"];
+	
+	for (NSString *pair in pairs) {
+		NSRange eqRange = [pair rangeOfString:@"="];
+		
+		NSString *key;
+		id value;
+		
+		if (eqRange.location == NSNotFound) {
+			key = [pair stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			value = @"";
+		} else {
+			key = [[pair substringToIndex:eqRange.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			if ([pair length] > eqRange.location + 1) {
+				value = [[pair substringFromIndex:eqRange.location + 1] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+			} else {
+				value = @"";
+			}
+		}
+		
+		// Parameter already exists, it must be a dictionary
+		if (nil != [params objectForKey:key]) {
+			id existingValue = [params objectForKey:key];
+			if (![existingValue isKindOfClass:[NSDictionary class]]) {
+				value = [NSDictionary dictionaryWithObjectsAndKeys:existingValue, [NSNumber numberWithInt:0], value, [NSNumber numberWithInt:1], nil];
+			} else {
+				// FIXME: There must be a more elegant way to build a nested dictionary then make it immutable?
+				NSMutableDictionary *newValue = [NSMutableDictionary dictionaryWithDictionary:existingValue];
+				[newValue setObject:value forKey:[NSNumber numberWithInt:[newValue count]]];
+				value = [NSDictionary dictionaryWithDictionary:newValue];
+			}
+
+		}
+		
+		[params setObject:value forKey:key];
+	}
+	
+	return [NSDictionary dictionaryWithDictionary:params];
 }
 
 - (void)dealloc {
 	[env release];
+	[url release];
+	[path release];
+	[query release];
+	[get release];
 	[super dealloc];
 }
 
