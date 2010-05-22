@@ -40,4 +40,14 @@
 	GHAssertEqualStrings(@"c", [q objectForKey:[NSNumber numberWithInt:8]], @"Parameter q should be a dictionary with key 8 = c");
 }
 
+- (void)testMultiDimensionalDictionariesCanBeUsed {
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[a][][2]=a&q[a][0][]=b" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *q = [dict objectForKey:@"q"];
+	NSDictionary *q_A = [q objectForKey:@"a"];
+	NSDictionary *q_A_0 = [q_A objectForKey:[NSNumber numberWithInt:0]];
+	
+	GHAssertEqualStrings(@"a", [q_A_0 objectForKey:[NSNumber numberWithInt:2]], @"Parameter q should be a dictionary with key [a][0][3] = a");
+	GHAssertEqualStrings(@"b", [q_A_0 objectForKey:[NSNumber numberWithInt:3]], @"Parameter q should be a dictionary with key [a][0][3] = a");
+}
+
 @end
