@@ -115,18 +115,4 @@
  */
 - (id)param:(NSString *)paramName method:(NSString *)method;
 
-#pragma mark -
-#pragma mark Utility methods
-
-/*!
- * @method
- * @tocgroup	Utility methods
- * @abstract	Parse a query string formatted according to RFC 2396.
- * 
- * @param		The RFC 2396 formatted query string.
- * 
- * @result		Returns an NSDictionary containing the parameters parsed from the string.
- */
-- (NSDictionary *)parseQuery:(NSString *)queryString;
-
 @end

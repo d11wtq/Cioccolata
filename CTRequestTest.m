@@ -90,4 +90,7 @@
 	[req release];
 }
 
+// Next, 3d/4d structures
+// Next, make sure syntax errors are handled
+
 @end
