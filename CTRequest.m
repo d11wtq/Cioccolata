@@ -106,20 +106,18 @@
 		if (nil != [params objectForKey:key]) {
 			id existingValue = [params objectForKey:key];
 			if (![existingValue isKindOfClass:[NSDictionary class]]) {
-				value = [NSDictionary dictionaryWithObjectsAndKeys:existingValue, [NSNumber numberWithInt:0], value, [NSNumber numberWithInt:1], nil];
-			} else {
-				// FIXME: There must be a more elegant way to build a nested dictionary then make it immutable?
-				NSMutableDictionary *newValue = [NSMutableDictionary dictionaryWithDictionary:existingValue];
-				[newValue setObject:value forKey:[NSNumber numberWithInt:[newValue count]]];
-				value = [NSDictionary dictionaryWithDictionary:newValue];
+				existingValue = [NSMutableDictionary dictionaryWithObjectsAndKeys:existingValue, [NSNumber numberWithInt:0], nil];
 			}
-
+			
+			[existingValue setObject:value forKey:[NSNumber numberWithInt:[existingValue count]]];
+			
+			value = existingValue;
 		}
 		
 		[params setObject:value forKey:key];
 	}
 	
-	return [NSDictionary dictionaryWithDictionary:params];
+	return params;
 }
 
 - (void)dealloc {
