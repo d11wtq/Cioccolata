@@ -89,6 +89,8 @@
 - (NSDictionary *)parseQuery:(NSString *)queryString {
 	// TODO: Move this to a category on NSDictionary -dictionaryByParsingQueryString:withEncoding:
 	
+	NSMutableDictionary *maxIndicesCatalog = [NSMutableDictionary dictionary];
+	
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	NSArray *pairs = [queryString componentsSeparatedByString:@"&"];
 	
@@ -131,7 +133,29 @@
 					break;
 				}
 				
-				[keys addObject:[[encodedKey substringToIndex:braceClose.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding]];
+				id thisKey = [[encodedKey substringToIndex:braceClose.location] stringByReplacingPercentEscapesUsingEncoding:NSASCIIStringEncoding];
+				
+				if ([thisKey isEqual:@""]) {
+					NSNumber *currentMaxIndex = [maxIndicesCatalog objectForKey:keys];
+					if (nil == currentMaxIndex) {
+						currentMaxIndex = [NSNumber numberWithInt:0];
+					} else {
+						currentMaxIndex = [NSNumber numberWithInt:[currentMaxIndex integerValue] + 1];
+					}
+					
+					[maxIndicesCatalog setObject:currentMaxIndex forKey:keys];
+					
+					thisKey = currentMaxIndex;
+				} else if ([thisKey isEqual:[NSString stringWithFormat:@"%d", [thisKey integerValue]]]) { // Is Integer
+					thisKey = [NSNumber numberWithInt:[thisKey integerValue]];
+					
+					NSNumber *currentMaxIndex = [maxIndicesCatalog objectForKey:keys];
+					if ((nil == currentMaxIndex) || [thisKey integerValue] > [currentMaxIndex integerValue]) {
+						[maxIndicesCatalog setObject:thisKey forKey:keys];
+					}
+				}
+				
+				[keys addObject:thisKey];
 				
 				braceOpen = [encodedKey rangeOfString:@"["];
 			} while (NSNotFound != braceOpen.location);

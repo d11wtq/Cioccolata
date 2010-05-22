@@ -71,4 +71,23 @@
 	[req release];
 }
 
+- (void)testGETParametersWithEmptyBracesAppendNumericalKeysToDictionary {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[]=a&c=3&q[]=b", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	NSDictionary *q = [req param:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
+	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:1]], @"Parameter q should be a dictionary with key 1 = b");
+	[req release];
+}
+
+- (void)testGETParametersCanExpresslySetNumericalKeysInDictionary {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[]=a&q[7]=b&q[]=c", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	NSDictionary *q = [req param:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
+	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:7]], @"Parameter q should be a dictionary with key 7 = b");
+	GHAssertEqualStrings(@"c", [q objectForKey:[NSNumber numberWithInt:8]], @"Parameter q should be a dictionary with key 8 = c");
+	[req release];
+}
+
 @end
