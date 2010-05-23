@@ -50,4 +50,10 @@
 	GHAssertEqualStrings(@"b", [q_A_0 objectForKey:[NSNumber numberWithInt:3]], @"Parameter q should be a dictionary with key [a][0][3] = a");
 }
 
+- (void)testSpuriousOpeningBraceInQueryStringIsAccepted {
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo[]=a" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *q = [dict objectForKey:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:@"foo["], @"Parameter q should be a dictionary with key foo[ = a");
+}
+
 @end

@@ -34,7 +34,7 @@
 	FCGX_InitRequest(&cgiRequest, 0, 0);
 	
 	for (;;) {
-		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+		NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
 		
 		NSLock *acceptLock = [[NSLock alloc] init];
 		

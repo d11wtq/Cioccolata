@@ -6,18 +6,23 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
+/*!
+ * @privatesection
+ */
+
 #include <fcgi_config.h>
 #include <fcgiapp.h>
 
 #import "CTRequest.h"
 
 
+/*!
+ * Adds an initialization method to CTRequest so the FastCGI bootstrap can create a request.
+ */
 @interface CTRequest(FCGX)
 
-/**
- * This method initializes the request using the FCGX_Request struct from libfcgi's fcgiapp.h.
- * 
- * It is not public.
+/*!
+ * @brief	This method initializes the request using the FCGX_Request struct from libfcgi's fcgiapp.h.
  */
 - (id)initWithFCGXRequest:(FCGX_Request)request;
 

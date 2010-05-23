@@ -8,34 +8,26 @@
 
 
 /*!
- @header	NSDictionary(CioccolataAdditions)
- @abstract	A FastCGI web-application framework for Objective-C
- */
-
-
-/*!
- * @class		NSDictionary(CioccolataAdditions)
- * @toc			NSDictionary(CioccolataAdditions)
- * @abstract	Utility methods added to NSDictionary.
+ * Utility methods added to NSDictionary.
  */
 @interface NSDictionary(CioccolataAdditions)
 
+
 /*!
- * @method
- * @tocgroup	Initialization methods
- * @abstract	Create a dictionary by parsing the components of the given query string.
+ * Create a dictionary by parsing the components of the given query string.
  * 
- * @result		Returns a tree structure based around NSDictionary, containing the parameters in the query string.
+ * @param		The encoded query string to parse, without the leading question mark.
+ * @return		A tree structure based around NSDictionary, containing the parameters in the query string.
  */
 + (NSDictionary *)dictionaryByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding;
 
 /*!
- * @method
- * @tocgroup	Initialization methods
- * @abstract	Create a dictionary by parsing the components of the given query string.
- * 
- * @result		Returns a tree structure based around NSDictionary, containing the parameters in the query string.
+ * Create a dictionary by parsing the components of the given query string.
+ *
+ * @param		The encoded query string to parse, without the leading question mark.
+ * @return		A tree structure based around NSDictionary, containing the parameters in the query string.
  */
 - (id)initByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding;
+
 
 @end

@@ -6,16 +6,9 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
-/*!
- @header	CTRequest
- @abstract	A FastCGI web-application framework for Objective-C
- */
-
 
 /*!
- * @class		CTRequest
- * @toc			CTRequest
- * @abstract	An HTTP request received from the client.
+ * An HTTP request received from the client.
  */
 @interface CTRequest : NSObject {
 	NSDictionary *env;
@@ -25,49 +18,31 @@
 	NSDictionary *get;
 }
 
+
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	The full list of environment variables available to the web application.
- * 
- * @result		Returns an NSDictionary containing the environment verbatim.
+ * The full list of environment variables available to the web application.
  */
 @property (readonly) NSDictionary *env;
 
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	The absolute URL as derived from the FastCGI environment.
- * @discussion	You should be aware that CGI does not provide a mechanism for determing if the request is HTTPS or HTTP.
+ * The absolute URL as derived from the FastCGI environment.
  * 
- * @result		An NSURL that can be introspected.
+ * You should be aware that CGI does not provide a mechanism for determing if the request is HTTPS or HTTP.
  */
 @property (readonly) NSURL *url;
 
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	The path portion of the request URI.
- * 
- * @result		Returns an NSString containing the URL-decoded path.
+ * The path portion of the request URI.
  */
 @property (readonly) NSString *path;
 
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	The query string portion of the request URI.
- * 
- * @result		Returns an NSString containing the query string verbatim.
+ * The query string portion of the request URI.
  */
 @property (readonly) NSString *query;
 
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	The full list of GET parameters.
- * 
- * @result		Returns an NSDictionary containing the URL-decoded GET parameters.
+ * The full list of GET parameters, which may be multi-dimensional in structure.
  */
 @property (readonly) NSDictionary *get;
 
@@ -76,42 +51,35 @@
 #pragma mark Initialization methods
 
 /*!
- * @method
- * @tocgroup	Initialization Methods
- * @abstract	Initialize a new request based on the given request.
+ * Initialize a new request based on the given request.
  */
 - (id)initWithRequest:(CTRequest *)request;
 
 /*!
- * @method
- * @tocgroup	Initialization Methods
- * @abstract	Initialize a request using the given environment variables.
+ * Initialize a request using the given environment variables.
  */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
 
 #pragma mark -
 #pragma mark Request data accessors
 
 /*!
- * @method
- * tocgroup		Request data accessors
- * @abstract	Get a parameter from the request, searching GET, then POST.
+ * @brief	Get a parameter from the request, searching GET, then POST.
  * 
- * @param		paramName The name of the paramater to return.
+ * @param	paramName The name of the paramater to return.
  * 
- * @result		Usually returns an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
+ * @return	Usually an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
  */
 - (id)param:(NSString *)paramName;
 
 /*!
- * @method
- * @tocgroup	Request data accessors
- * @abstract	Get a parameter from the request, specifying where the parameter should be expected.
+ * @brief	Get a parameter from the request, specifying where the parameter should be expected.
  * 
- * @param		paramName The name of the parameter to return
- * @param		method The HTTP method used to send the parameter, GET or POST.
+ * @param	paramName The name of the parameter to return
+ * @param	method The HTTP method used to send the parameter, GET or POST.
  * 
- * @result		Usually returns an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
+ * @return	Usually an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
  */
 - (id)param:(NSString *)paramName method:(NSString *)method;
 

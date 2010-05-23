@@ -12,7 +12,7 @@
 @implementation CTQueryStringParser
 
 - (NSDictionary *)parseQuery:(NSString *)queryString usingEncoding:(NSStringEncoding)encoding {
-	maxIndicesCatalog = [NSMutableDictionary dictionary];
+	NSMutableDictionary *maxIndicesCatalog = [NSMutableDictionary dictionary];
 	
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	NSArray *pairs = [queryString componentsSeparatedByString:@"&"];
@@ -20,16 +20,16 @@
 	for (NSString *pair in pairs) {
 		NSRange eqRange = [pair rangeOfString:@"="];
 		
-		NSString *encodedKey;
+		NSMutableString *encodedKey = [NSMutableString stringWithCapacity:pair.length];
 		NSMutableArray *keys = [NSMutableArray array];
-		id value;
+		NSString *value;
 		
 		// Parameter does not have an explicit value
 		if (eqRange.location == NSNotFound) {
-			encodedKey = pair;
+			[encodedKey setString:pair];
 			value = @"";
 		} else {
-			encodedKey = [pair substringToIndex:eqRange.location];
+			[encodedKey setString:[pair substringToIndex:eqRange.location]];
 			if ([pair length] > eqRange.location + 1) {
 				value = [[pair substringFromIndex:eqRange.location + 1] stringByReplacingPercentEscapesUsingEncoding:encoding];
 			} else {
@@ -37,7 +37,7 @@
 			}
 		}
 		
-		[self parseKeysFromEncodedString:encodedKey intoArray:keys usingEncoding:encoding];
+		[self parseKeysFromEncodedString:encodedKey intoArray:keys usingEncoding:encoding indexCatalog:maxIndicesCatalog];
 		
 		[self copyValue:value toDictionary:params usingKeys:keys];
 	}
@@ -45,7 +45,8 @@
 	return params;
 }
 
-- (void)parseKeysFromEncodedString:(NSString *)string intoArray:(NSMutableArray *)array usingEncoding:(NSStringEncoding)encoding {
+- (void)parseKeysFromEncodedString:(NSMutableString *)string intoArray:(NSMutableArray *)array
+					 usingEncoding:(NSStringEncoding)encoding indexCatalog:(NSMutableDictionary *)indexCatalog {
 	NSRange braceOpen = [string rangeOfString:@"["];
 	
 	// Parameter contains braces; parse out the key(s)
@@ -54,11 +55,11 @@
 						 stringByReplacingPercentEscapesUsingEncoding:encoding]];
 		
 		do {
-			if ([string length] <= braceOpen.location + 1) {
+			/*if (string.length <= braceOpen.location + 1) {
 				break;
-			}
+			}*/
 			
-			string = [string substringFromIndex:braceOpen.location + 1];
+			[string deleteCharactersInRange:NSMakeRange(0, braceOpen.location + 1)];
 			
 			NSRange braceClose = [string rangeOfString:@"]"];
 			if (NSNotFound == braceClose.location) {
@@ -69,32 +70,32 @@
 						  stringByReplacingPercentEscapesUsingEncoding:encoding];
 			
 			if ([thisKey isEqual:@""]) {
-				NSNumber *currentMaxIndex = [maxIndicesCatalog objectForKey:array];
+				NSNumber *currentMaxIndex = [indexCatalog objectForKey:array];
 				if (nil == currentMaxIndex) {
 					currentMaxIndex = [NSNumber numberWithInt:0];
 				} else {
 					currentMaxIndex = [NSNumber numberWithInt:[currentMaxIndex integerValue] + 1];
 				}
 				
-				[maxIndicesCatalog setObject:currentMaxIndex forKey:array];
+				[indexCatalog setObject:currentMaxIndex forKey:array];
 				
 				thisKey = currentMaxIndex;
 			} else if ([thisKey isEqual:[NSString stringWithFormat:@"%d", [thisKey integerValue]]]) { // Is Integer
 				thisKey = [NSNumber numberWithInt:[thisKey integerValue]];
 				
-				NSNumber *currentMaxIndex = [maxIndicesCatalog objectForKey:array];
+				NSNumber *currentMaxIndex = [indexCatalog objectForKey:array];
 				if ((nil == currentMaxIndex) || [thisKey integerValue] > [currentMaxIndex integerValue]) {
-					[maxIndicesCatalog setObject:thisKey forKey:array];
+					[indexCatalog setObject:thisKey forKey:array];
 				}
 			}
 			
 			[array addObject:thisKey];
 			
-			if ([string length] <= braceClose.location + 1) {
+			/*if ([string length] <= braceClose.location + 1) {
 				break;
-			}
+			}*/
 			
-			string = [string substringFromIndex:braceClose.location + 1];
+			[string deleteCharactersInRange:NSMakeRange(0, braceClose.location + 1)];
 			
 			braceOpen = [string rangeOfString:@"["];
 		} while (NSNotFound != braceOpen.location);
@@ -103,9 +104,8 @@
 	}
 }
 
-- (void)copyValue:(id)value toDictionary:(NSMutableDictionary *)dictionary usingKeys:(NSArray *)keys {
+- (void)copyValue:(NSString *)value toDictionary:(NSMutableDictionary *)dictionary usingKeys:(NSArray *)keys {
 	NSMutableDictionary *currentContainer = dictionary;
-	
 	NSInteger index = 0, count = [keys count];
 	
 	for (id key in keys) {
