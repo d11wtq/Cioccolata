@@ -147,6 +147,27 @@
 	[req release];
 }
 
+- (void)testPortIsInferredFromServerPort {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"80", @"SERVER_PORT", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals(80, req.port, @"Port should be inferred from SERVER_PORT");
+	[req release];
+}
+
+- (void)testStandardPortIsLeftOutOfURL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"80", @"SERVER_PORT", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertNil(req.url.port, @"Standard port should be left out of URL");
+	[req release];
+}
+
+- (void)testNonStandardPortIsAddedToURL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"8080", @"SERVER_PORT", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals(8080, [req.url.port integerValue], @"Standard port should included in URL");
+	[req release];
+}
+
 - (void)testIsSSLCheckIsInferredFromHTTPSEvnironmentVariable {
 	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
 	CTRequest *reqNonSSL = [[CTRequest alloc] initWithDictionary:dict];
@@ -157,6 +178,27 @@
 	CTRequest *reqSSL = [[CTRequest alloc] initWithDictionary:dict];
 	GHAssertTrue(reqSSL.isSSL, @"SSL should be on since HTTPS = on");
 	[reqSSL release];
+}
+
+- (void)testPort443IsConsideredNonStandardIfNotSSL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"443", @"SERVER_PORT", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals(443, [req.url.port integerValue], @"Port should be included in URL since 443 is a non-standard port when not SSL");
+	[req release];
+}
+
+- (void)testPort443IsConsideredStandardForSSL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"443", @"SERVER_PORT", @"on", @"HTTPS", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertNil(req.url.port, @"Port should not be included in URL since 443 is a standard port when SSL");
+	[req release];
+}
+
+- (void)testPort80IsConsideredNonStandardForSSL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"80", @"SERVER_PORT", @"on", @"HTTPS", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals(80, [req.url.port integerValue], @"Port should be included in URL since 80 is a non-standard port when SSL");
+	[req release];
 }
 
 - (void)testURLSchemeIsHTTPSWhenSSLIsOn {

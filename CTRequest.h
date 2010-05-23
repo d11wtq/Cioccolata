@@ -14,6 +14,7 @@
 	NSDictionary *env;
 	NSURL *url;
 	NSString *host;
+	NSInteger port;
 	NSString *path;
 	NSString *query;
 	BOOL isSSL;
@@ -22,10 +23,11 @@
 	/* TODO:
 	 mimeType
 	 encoding
-	 port
 	 post
 	 files
 	 body
+	 cookies
+	 session
 	 */
 }
 
@@ -46,6 +48,11 @@
  * The hostname portion of the URL.
  */
 @property (readonly) NSString *host;
+
+/*!
+ * The port number on which the user is connected to the HTTP server.
+ */
+@property (readonly) NSInteger port;
 
 /*!
  * The path portion of the request URI.

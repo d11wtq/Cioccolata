@@ -15,6 +15,7 @@
 @synthesize env;
 @synthesize url;
 @synthesize host;
+@synthesize port;
 @synthesize path;
 @synthesize query;
 @synthesize isSSL;
@@ -38,6 +39,8 @@
 		NSLog(@"WARNING: FastCGI application loaded without SERVER_NAME, falling back to 127.0.0.1");
 		host = @"127.0.0.1";
 	}
+	
+	port = [[env objectForKey:@"SERVER_PORT"] integerValue];
 	
 	path = [env objectForKey:@"SCRIPT_NAME"];
 	if (nil == path) {
@@ -63,7 +66,12 @@
 	
 	isSSL = [[env objectForKey:@"HTTPS"] isEqual:@"on"];
 	
-	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@://%@%@", (isSSL ? @"https" : @"http"), host, uri]];
+	NSString *hostWithPort = host;
+	if ((isSSL && port != 443) || (!isSSL && port != 80)) {
+		hostWithPort = [NSString stringWithFormat:@"%@:%d", host, port];
+	}
+	
+	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@://%@%@", (isSSL ? @"https" : @"http"), hostWithPort, uri]];
 	
 	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSASCIIStringEncoding];
 	
