@@ -16,6 +16,7 @@
 	NSString *host;
 	NSString *path;
 	NSString *query;
+	BOOL isSSL;
 	NSDictionary *get;
 }
 
@@ -46,6 +47,12 @@
  * The query string portion of the request URI.
  */
 @property (readonly) NSString *query;
+
+/*!
+ * @brief	YES if SSL was automatically detected.
+ *			This requires that the HTTP server sets the HTTPS environment variable to "on".
+ */
+@property (readonly) BOOL isSSL;
 
 /*!
  * The full list of GET parameters, which may be multi-dimensional in structure.

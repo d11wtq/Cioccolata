@@ -147,4 +147,23 @@
 	[req release];
 }
 
+- (void)testIsSSLCheckIsInferredFromHTTPSEvnironmentVariable {
+	NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+	CTRequest *reqNonSSL = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertFalse(reqNonSSL.isSSL, @"SSL should be off since HTTPS is not set");
+	[reqNonSSL release];
+	
+	[dict setObject:@"on" forKey:@"HTTPS"];
+	CTRequest *reqSSL = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertTrue(reqSSL.isSSL, @"SSL should be on since HTTPS = on");
+	[reqSSL release];
+}
+
+- (void)testURLSchemeIsHTTPSWhenSSLIsOn {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"on", @"HTTPS", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"https", req.url.scheme, @"URL scheme should be HTTPS since SSL is on");
+	[req release];
+}
+
 @end

@@ -17,20 +17,8 @@
 @synthesize host;
 @synthesize path;
 @synthesize query;
+@synthesize isSSL;
 @synthesize get;
-
-/*- (id)init {
-	self = [super init];
-	if (!self) {
-		return nil;
-	}
-	
-	host = @"127.0.0.1";
-	path = @"/";
-	query = @"";
-	
-	return self;
-}*/
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -72,7 +60,9 @@
 					 [path stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
 					 queryWithLeadingQuestionMark];
 	
-	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://%@%@", host, uri]];
+	isSSL = [[env objectForKey:@"HTTPS"] isEqual:@"on"];
+	
+	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@://%@%@", (isSSL ? @"https" : @"http"), host, uri]];
 	
 	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSASCIIStringEncoding];
 	
