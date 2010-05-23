@@ -13,6 +13,7 @@
 @interface CTRequest : NSObject {
 	NSDictionary *env;
 	NSURL *url;
+	NSString *host;
 	NSString *path;
 	NSString *query;
 	NSDictionary *get;
@@ -30,6 +31,11 @@
  * You should be aware that CGI does not provide a mechanism for determing if the request is HTTPS or HTTP.
  */
 @property (readonly) NSURL *url;
+
+/*!
+ * The hostname portion of the URL.
+ */
+@property (readonly) NSString *host;
 
 /*!
  * The path portion of the request URI.

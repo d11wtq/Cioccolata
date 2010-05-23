@@ -14,21 +14,23 @@
 
 @synthesize env;
 @synthesize url;
+@synthesize host;
 @synthesize path;
 @synthesize query;
 @synthesize get;
 
-- (id)init {
+/*- (id)init {
 	self = [super init];
 	if (!self) {
 		return nil;
 	}
 	
+	host = @"127.0.0.1";
 	path = @"/";
 	query = @"";
 	
 	return self;
-}
+}*/
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -41,6 +43,12 @@
 	}
 	
 	env = [[NSDictionary alloc] initWithDictionary:dictionary];
+	
+	host = [env objectForKey:@"SERVER_NAME"];
+	if (nil == host) {
+		NSLog(@"WARNING: FastCGI application loaded without SERVER_NAME, falling back to 127.0.0.1");
+		host = @"127.0.0.1";
+	}
 	
 	path = [env objectForKey:@"SCRIPT_NAME"];
 	if (nil == path) {
@@ -64,7 +72,7 @@
 					 [path stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
 					 queryWithLeadingQuestionMark];
 	
-	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://127.0.0.1%@", uri]];
+	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"http://%@%@", host, uri]];
 	
 	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSASCIIStringEncoding];
 	
@@ -87,6 +95,7 @@
 - (void)dealloc {
 	[env release];
 	[url release];
+	[host release];
 	[path release];
 	[query release];
 	[get release];

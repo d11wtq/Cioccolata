@@ -29,7 +29,7 @@
 - (void)testPathIsCorrectInURL {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"/a/b c", @"SCRIPT_NAME", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"/a/b c", [req.url path], @"Path should be available in URL");
+	GHAssertEqualStrings(@"/a/b c", req.url.path, @"Path should be available in URL");
 	[req release];
 }
 
@@ -43,7 +43,7 @@
 - (void)testQueryStringIsCorrectInURL {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a%20b&c=3", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"q=a%20b&c=3", [req.url query], @"Query string should be taken from environment");
+	GHAssertEqualStrings(@"q=a%20b&c=3", req.url.query, @"Query string should be taken from environment");
 	[req release];
 }
 
@@ -122,6 +122,28 @@
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"]q]=a", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
 	GHAssertEqualStrings(@"a", [req param:@"]q]"], @"Parameter ]q] should be 'a'");
+	[req release];
+}
+
+- (void)testGETParametersCanBeAccesedAsADictionary {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a%20b&c=3", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"a b", [req.get objectForKey:@"q"], @"Parameter q should be URL-decoded a%20b");
+	GHAssertEqualStrings(@"3", [req.get objectForKey:@"c"], @"Parameter c should be 3");
+	[req release];
+}
+
+- (void)testHostIsInferredFromServerName {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"www.cute-little-puppy-dogs.com", @"SERVER_NAME", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"www.cute-little-puppy-dogs.com", req.host, @"Host should be inferred from SEREVR_NAME");
+	[req release];
+}
+
+- (void)testHostIsCorrectInURL {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"www.cute-little-puppy-dogs.com", @"SERVER_NAME", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"www.cute-little-puppy-dogs.com", req.url.host, @"Host should be inferred from SEREVR_NAME");
 	[req release];
 }
 
