@@ -20,12 +20,12 @@
 	BOOL isSSL;
 	NSDictionary *get;
 	NSString *ip;
+	NSString *method;
 	/* TODO:
 	 mimeType
 	 encoding
 	 encodingName
 	 post
-	 method
 	 files
 	 inputStream
 	 cookies
@@ -83,6 +83,12 @@
  */
 @property (readonly) NSString *ip;
 
+/*!
+ * @brief	The HTTP request method used to send the request.
+ *			One of GET, POST, PUT, DELETE, HEAD, or if implemented, a custom method.
+ */
+@property (readonly) NSString *method;
+
 
 #pragma mark -
 #pragma mark Initialization methods
@@ -102,7 +108,7 @@
 #pragma mark Request data accessors
 
 /*!
- * @brief	Get a parameter from the request, searching GET, then POST.
+ * @brief	Get a parameter from the request, searching POST then GET.
  * 
  * @param	paramName The name of the paramater to return.
  * 

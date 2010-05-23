@@ -19,6 +19,13 @@
 	[req release];
 }
 
+- (void)testRequestMethodIsInferredFromRequestMethodVariable {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"PUT", @"REQUEST_METHOD", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"PUT", req.method, @"Request method should be copied from REQUEST_METHOD");
+	[req release];
+}
+
 - (void)testPathIsInferredFromScriptName {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"/a/b c", @"SCRIPT_NAME", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];

@@ -21,6 +21,7 @@
 @synthesize isSSL;
 @synthesize get;
 @synthesize ip;
+@synthesize method;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -33,6 +34,8 @@
 	}
 	
 	env = [[NSDictionary alloc] initWithDictionary:dictionary];
+	
+	method = [env objectForKey:@"REQUEST_METHOD"];
 	
 	host = [env objectForKey:@"SERVER_NAME"];
 	if (nil == host) {
@@ -81,9 +84,9 @@
 }
 
 - (id)param:(NSString *)paramName {
-	id result = [self param:paramName method:@"GET"];
+	id result = [self param:paramName method:@"POST"];
 	if (nil == result) {
-		result = [self param:paramName method:@"POST"];
+		result = [self param:paramName method:@"GET"];
 	}
 	
 	return result;
@@ -107,6 +110,7 @@
 	[query release];
 	[get release];
 	[ip release];
+	[method release];
 	[super dealloc];
 }
 
