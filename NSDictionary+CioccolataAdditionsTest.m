@@ -56,4 +56,15 @@
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo["], @"Parameter q should be a dictionary with key foo[ = a");
 }
 
+- (void)testSpuriousTrailingClosingBraceInQueryStringIsIgnored {
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo]]=a" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *q = [dict objectForKey:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
+}
+
+- (void)testSpuriousLeadingAndTrailingBracesInQueryStringAreAccepted {
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"]q]=a" withEncoding:NSASCIIStringEncoding];
+	GHAssertEqualStrings(@"a", [dict objectForKey:@"]q]"], @"Parameter ]q] should be 'a'");
+}
+
 @end

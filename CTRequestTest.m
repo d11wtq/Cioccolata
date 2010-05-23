@@ -110,6 +110,19 @@
 	[req release];
 }
 
-// Next, make sure syntax errors are handled
+- (void)testSpuriousTrailingClosingBraceInQueryStringIsIgnored {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo]]=a", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	NSDictionary *q = [req param:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
+	[req release];
+}
+
+- (void)testSpuriousLeadingAndTrailingBracesInQueryStringAreAccepted {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"]q]=a", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"a", [req param:@"]q]"], @"Parameter ]q] should be 'a'");
+	[req release];
+}
 
 @end
