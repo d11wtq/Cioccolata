@@ -93,6 +93,12 @@
 	return [self.get objectForKey:paramName];
 }
 
+- (NSString *)headerWithName:(NSString *)headerName {
+	NSString *canonicalizedName = [NSString stringWithFormat:@"HTTP_%@",
+								   [[headerName uppercaseString] stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
+	return [env objectForKey:canonicalizedName];
+}
+
 - (void)dealloc {
 	[env release];
 	[url release];

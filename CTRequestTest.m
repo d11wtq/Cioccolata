@@ -215,4 +215,11 @@
 	[req release];
 }
 
+- (void)testHTTPHeadersAreReturned {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"test", @"HTTP_X_TEST", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"test", [req headerWithName:@"X-Test"], @"Header value should be inferred from HTTP_X_TEST");
+	[req release];
+}
+
 @end

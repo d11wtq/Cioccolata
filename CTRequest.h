@@ -23,11 +23,13 @@
 	/* TODO:
 	 mimeType
 	 encoding
+	 encodingName
 	 post
+	 method
 	 files
-	 body
+	 inputStream
 	 cookies
-	 session
+	 session - ?
 	 */
 }
 
@@ -117,5 +119,15 @@
  * @return	Usually an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
  */
 - (id)param:(NSString *)paramName method:(NSString *)method;
+
+/*!
+ * @brief	Get the value of the request header, or nil if not set.
+ *			It's important to note that not all request headers may be exposed via FastCGI.  The web server is ultimately responsible for passing them.
+ * 
+ * @param	The name of the header.  This is case insensitive.
+ * 
+ * @return	The value of the header, or nil of not found.
+ */
+- (NSString *)headerWithName:(NSString *)headerName;
 
 @end
