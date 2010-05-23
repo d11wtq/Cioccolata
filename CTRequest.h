@@ -18,6 +18,15 @@
 	NSString *query;
 	BOOL isSSL;
 	NSDictionary *get;
+	NSString *ip;
+	/* TODO:
+	 mimeType
+	 encoding
+	 port
+	 post
+	 files
+	 body
+	 */
 }
 
 
@@ -58,6 +67,12 @@
  * The full list of GET parameters, which may be multi-dimensional in structure.
  */
 @property (readonly) NSDictionary *get;
+
+/*!
+ * @brief	The IP address of the client connecting to the server.
+ *			It's important to note that this may not ultimately be the end-user's machine.
+ */
+@property (readonly) NSString *ip;
 
 
 #pragma mark -

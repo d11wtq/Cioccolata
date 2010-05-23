@@ -166,4 +166,11 @@
 	[req release];
 }
 
+- (void)testIPAdressIsInferredFromRemoteAddr {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"187.76.141.2", @"REMOTE_ADDR", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"187.76.141.2", req.ip, @"IP should be taken from REMOTE_ADDR");
+	[req release];
+}
+
 @end

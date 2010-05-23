@@ -19,6 +19,7 @@
 @synthesize query;
 @synthesize isSSL;
 @synthesize get;
+@synthesize ip;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -66,6 +67,8 @@
 	
 	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSASCIIStringEncoding];
 	
+	ip = [env objectForKey:@"REMOTE_ADDR"];
+	
 	return self;
 }
 
@@ -89,6 +92,7 @@
 	[path release];
 	[query release];
 	[get release];
+	[ip release];
 	[super dealloc];
 }
 
