@@ -90,6 +90,12 @@
 			
 			[array addObject:thisKey];
 			
+			if ([string length] <= braceClose.location + 1) {
+				break;
+			}
+			
+			string = [string substringFromIndex:braceClose.location + 1];
+			
 			braceOpen = [string rangeOfString:@"["];
 		} while (NSNotFound != braceOpen.location);
 	} else {

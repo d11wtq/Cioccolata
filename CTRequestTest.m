@@ -90,15 +90,23 @@
 	[req release];
 }
 
-- (void)testMultiDimensionalDictionariesCanBeUsed {
+- (void)testMultiDimensionalDictionariesCanBeUsedInQueryString {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[a][][2]=a&q[a][0][]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
 	NSDictionary *q = [req param:@"q"];
 	NSDictionary *q_A = [q objectForKey:@"a"];
 	NSDictionary *q_A_0 = [q_A objectForKey:[NSNumber numberWithInt:0]];
 	
-	GHAssertEqualStrings(@"a", [q_A_0 objectForKey:[NSNumber numberWithInt:2]], @"Parameter q should be a dictionary with key [a][0][3] = a");
-	GHAssertEqualStrings(@"b", [q_A_0 objectForKey:[NSNumber numberWithInt:3]], @"Parameter q should be a dictionary with key [a][0][3] = a");
+	GHAssertEqualStrings(@"a", [q_A_0 objectForKey:[NSNumber numberWithInt:2]], @"Parameter q should be a dictionary with key [a][0][2] = a");
+	GHAssertEqualStrings(@"b", [q_A_0 objectForKey:[NSNumber numberWithInt:3]], @"Parameter q should be a dictionary with key [a][0][3] = b");
+	[req release];
+}
+
+- (void)testSpuriousOpeningBraceInQueryStringIsAccepted {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo[]=a", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	NSDictionary *q = [req param:@"q"];
+	GHAssertEqualStrings(@"a", [q objectForKey:@"foo["], @"Parameter q should be a dictionary with key foo[ = a");
 	[req release];
 }
 
