@@ -11,9 +11,8 @@
  */
 
 #include <fcgi_config.h>
-#include <fcgiapp.h>
-
 #import "CTRequest.h"
+#include <fcgiapp.h>
 
 
 /*!
