@@ -26,6 +26,8 @@
 		83199A3711AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */; };
 		83199A6411AAC80000F65375 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A3F11AAC7E100F65375 /* GHUnit.framework */; };
 		83199A6511AAC80300F65375 /* GHUnit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A3F11AAC7E100F65375 /* GHUnit.framework */; };
+		83199A8311AACAC900F65375 /* RegexKit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A4011AAC7E100F65375 /* RegexKit.framework */; };
+		83199A9311AACACD00F65375 /* RegexKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A4011AAC7E100F65375 /* RegexKit.framework */; };
 		831CA048117F20B6009C0E6D /* libfcgi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CA047117F20B6009C0E6D /* libfcgi.dylib */; };
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D439E11A6ABA00072F242 /* GHUnitTestMain.m */; };
@@ -36,6 +38,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		83199A7D11AACA9C00F65375 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83199A7511AAC9A000F65375 /* CioccolataComponents */;
+			remoteInfo = CioccolataComponents;
+		};
 		837D43A011A6ABE80072F242 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
@@ -46,6 +55,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		83199AAC11AACAD500F65375 /* Copy Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				83199A8311AACAC900F65375 /* RegexKit.framework in Copy Frameworks */,
+			);
+			name = "Copy Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		837D439C11A6AAFB0072F242 /* Copy Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -84,6 +104,8 @@
 		83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CioccolataAdditionsTest.m"; sourceTree = "<group>"; };
 		83199A3F11AAC7E100F65375 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Frameworks/GHUnit.framework; sourceTree = "<group>"; };
 		83199A4011AAC7E100F65375 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Frameworks/RegexKit.framework; sourceTree = "<group>"; };
+		83199A7611AAC9A000F65375 /* CioccolataComponents.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CioccolataComponents.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		83199A7711AAC9A000F65375 /* CioccolataComponents-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CioccolataComponents-Info.plist"; sourceTree = "<group>"; };
 		831CA047117F20B6009C0E6D /* libfcgi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfcgi.dylib; path = /usr/lib/libfcgi.dylib; sourceTree = "<absolute>"; };
 		83452607117D9E910042DD00 /* Cioccolata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata.h; sourceTree = "<group>"; };
 		8369005F11A4129500FE0772 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
@@ -97,6 +119,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		83199A7411AAC9A000F65375 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				83199A9311AACACD00F65375 /* RegexKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		837D438A11A6AA300072F242 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -123,6 +153,7 @@
 			children = (
 				8DC2EF5B0486A6940098B216 /* Cioccolata.framework */,
 				837D438C11A6AA300072F242 /* Tests.app */,
+				83199A7611AAC9A000F65375 /* CioccolataComponents.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -138,6 +169,7 @@
 				034768DFFF38A50411DB9C8B /* Products */,
 				8369005F11A4129500FE0772 /* Test-Info.plist */,
 				837D438E11A6AA300072F242 /* Tests-Info.plist */,
+				83199A7711AAC9A000F65375 /* CioccolataComponents-Info.plist */,
 			);
 			name = Cioccolata;
 			sourceTree = "<group>";
@@ -284,6 +316,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		83199A7511AAC9A000F65375 /* CioccolataComponents */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83199A7A11AAC9A100F65375 /* Build configuration list for PBXNativeTarget "CioccolataComponents" */;
+			buildPhases = (
+				83199AAC11AACAD500F65375 /* Copy Frameworks */,
+				83199A7211AAC9A000F65375 /* Resources */,
+				83199A7311AAC9A000F65375 /* Sources */,
+				83199A7411AAC9A000F65375 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CioccolataComponents;
+			productName = CioccolataComponents;
+			productReference = 83199A7611AAC9A000F65375 /* CioccolataComponents.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		837D438B11A6AA300072F242 /* Tests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 837D439111A6AA310072F242 /* Build configuration list for PBXNativeTarget "Tests" */;
@@ -315,6 +365,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				83199A7E11AACA9C00F65375 /* PBXTargetDependency */,
 			);
 			name = Cioccolata;
 			productInstallPath = "$(HOME)/Library/Frameworks";
@@ -337,11 +388,19 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* Cioccolata */,
 				837D438B11A6AA300072F242 /* Tests */,
+				83199A7511AAC9A000F65375 /* CioccolataComponents */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		83199A7211AAC9A000F65375 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		837D438811A6AA300072F242 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -360,6 +419,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		83199A7311AAC9A000F65375 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		837D438911A6AA300072F242 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -387,6 +453,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		83199A7E11AACA9C00F65375 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 83199A7511AAC9A000F65375 /* CioccolataComponents */;
+			targetProxy = 83199A7D11AACA9C00F65375 /* PBXContainerItemProxy */;
+		};
 		837D43A111A6ABE80072F242 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* Cioccolata */;
@@ -485,6 +556,66 @@
 			};
 			name = Release;
 		};
+		83199A7811AAC9A100F65375 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CioccolataComponents-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CioccolataComponents;
+				SDKROOT = macosx10.5;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		83199A7911AAC9A100F65375 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/Frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CioccolataComponents-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CioccolataComponents;
+				WRAPPER_EXTENSION = bundle;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		837D438F11A6AA310072F242 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -563,6 +694,15 @@
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
 				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83199A7A11AAC9A100F65375 /* Build configuration list for PBXNativeTarget "CioccolataComponents" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83199A7811AAC9A100F65375 /* Debug */,
+				83199A7911AAC9A100F65375 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
