@@ -7,31 +7,31 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		831CA039117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		831CA03A117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */; };
+		83199A1911AAC6E400F65375 /* CTFastCGIAcceptLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0A11AAC6E400F65375 /* CTFastCGIAcceptLoop.h */; };
+		83199A1A11AAC6E400F65375 /* CTFastCGIAcceptLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A0B11AAC6E400F65375 /* CTFastCGIAcceptLoop.m */; };
+		83199A1B11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h */; };
+		83199A1C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A0D11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m */; };
+		83199A1D11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0E11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.h */; };
+		83199A1E11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A0F11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.m */; };
+		83199A1F11AAC6E400F65375 /* CTQueryStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1011AAC6E400F65375 /* CTQueryStringParser.h */; };
+		83199A2011AAC6E400F65375 /* CTQueryStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1111AAC6E400F65375 /* CTQueryStringParser.m */; };
+		83199A2111AAC6E400F65375 /* CTRequest+FCGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1211AAC6E400F65375 /* CTRequest+FCGX.h */; };
+		83199A2211AAC6E400F65375 /* CTRequest+FCGX.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1311AAC6E400F65375 /* CTRequest+FCGX.m */; };
+		83199A2311AAC6E400F65375 /* CTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1411AAC6E400F65375 /* CTRequest.h */; };
+		83199A2411AAC6E400F65375 /* CTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1511AAC6E400F65375 /* CTRequest.m */; };
+		83199A2511AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */; };
+		83199A2611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */; };
+		83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1811AAC6E400F65375 /* NSThread+GNUStep.h */; };
+		83199A3611AAC78D00F65375 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A3311AAC78D00F65375 /* CTRequestTest.m */; };
+		83199A3711AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */; };
+		83199A6411AAC80000F65375 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A3F11AAC7E100F65375 /* GHUnit.framework */; };
+		83199A6511AAC80300F65375 /* GHUnit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A3F11AAC7E100F65375 /* GHUnit.framework */; };
 		831CA048117F20B6009C0E6D /* libfcgi.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 831CA047117F20B6009C0E6D /* libfcgi.dylib */; };
-		831CA0C6117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */; };
-		831CA150117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */; };
-		831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */; };
-		831CA172117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */; };
-		831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA24511814742009C0E6D /* NSThread+GNUStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		831CA28E1182BD35009C0E6D /* CTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 831CA28C1182BD35009C0E6D /* CTRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		831CA28F1182BD35009C0E6D /* CTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 831CA28D1182BD35009C0E6D /* CTRequest.m */; };
 		83452608117D9E910042DD00 /* Cioccolata.h in Headers */ = {isa = PBXBuildFile; fileRef = 83452607117D9E910042DD00 /* Cioccolata.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8369003111A3E99500FE0772 /* CTRequest+FCGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */; };
-		8369003211A3E99500FE0772 /* CTRequest+FCGX.m in Sources */ = {isa = PBXBuildFile; fileRef = 8369003011A3E99500FE0772 /* CTRequest+FCGX.m */; };
-		837D439811A6AACE0072F242 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D436411A6A9280072F242 /* GHUnit.framework */; };
-		837D439A11A6AAEB0072F242 /* GHUnit.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 837D436411A6A9280072F242 /* GHUnit.framework */; };
 		837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D439E11A6ABA00072F242 /* GHUnitTestMain.m */; };
 		837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
-		837D43A611A6ACC40072F242 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D43A511A6ACC40072F242 /* CTRequestTest.m */; };
 		837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
 		837D46A411A7A4A80072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D46A011A7A4A10072F242 /* Foundation.framework */; };
-		837D479411A837A60072F242 /* NSDictionary+CioccolataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 837D479211A837A60072F242 /* NSDictionary+CioccolataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		837D479511A837A60072F242 /* NSDictionary+CioccolataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D479311A837A60072F242 /* NSDictionary+CioccolataAdditions.m */; };
-		837D479F11A83BD20072F242 /* NSDictionary+CioccolataAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D479A11A83BA00072F242 /* NSDictionary+CioccolataAdditionsTest.m */; };
-		837D47DE11A83F5F0072F242 /* CTQueryStringParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 837D47DC11A83F5F0072F242 /* CTQueryStringParser.h */; };
-		837D47DF11A83F5F0072F242 /* CTQueryStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 837D47DD11A83F5F0072F242 /* CTQueryStringParser.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +40,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216 /* Cioccolata */;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
 			remoteInfo = Cioccolata;
 		};
 /* End PBXContainerItemProxy section */
@@ -52,8 +52,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				83199A6511AAC80300F65375 /* GHUnit.framework in Copy Frameworks */,
 				837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */,
-				837D439A11A6AAEB0072F242 /* GHUnit.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,34 +63,35 @@
 /* Begin PBXFileReference section */
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* Cioccolata_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata_Prefix.pch; sourceTree = "<group>"; };
-		831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptLoop.h; sourceTree = "<group>"; };
-		831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptLoop.m; sourceTree = "<group>"; };
+		83199A0A11AAC6E400F65375 /* CTFastCGIAcceptLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptLoop.h; sourceTree = "<group>"; };
+		83199A0B11AAC6E400F65375 /* CTFastCGIAcceptLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptLoop.m; sourceTree = "<group>"; };
+		83199A0C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerOperation.h; sourceTree = "<group>"; };
+		83199A0D11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerOperation.m; sourceTree = "<group>"; };
+		83199A0E11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerThread.h; sourceTree = "<group>"; };
+		83199A0F11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerThread.m; sourceTree = "<group>"; };
+		83199A1011AAC6E400F65375 /* CTQueryStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQueryStringParser.h; sourceTree = "<group>"; };
+		83199A1111AAC6E400F65375 /* CTQueryStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQueryStringParser.m; sourceTree = "<group>"; };
+		83199A1211AAC6E400F65375 /* CTRequest+FCGX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTRequest+FCGX.h"; sourceTree = "<group>"; };
+		83199A1311AAC6E400F65375 /* CTRequest+FCGX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTRequest+FCGX.m"; sourceTree = "<group>"; };
+		83199A1411AAC6E400F65375 /* CTRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequest.h; sourceTree = "<group>"; };
+		83199A1511AAC6E400F65375 /* CTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequest.m; sourceTree = "<group>"; };
+		83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CioccolataAdditions.h"; sourceTree = "<group>"; };
+		83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CioccolataAdditions.m"; sourceTree = "<group>"; };
+		83199A1811AAC6E400F65375 /* NSThread+GNUStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+GNUStep.h"; sourceTree = "<group>"; };
+		83199A3211AAC78D00F65375 /* CTRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestTest.h; sourceTree = "<group>"; };
+		83199A3311AAC78D00F65375 /* CTRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestTest.m; sourceTree = "<group>"; };
+		83199A3411AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CioccolataAdditionsTest.h"; sourceTree = "<group>"; };
+		83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CioccolataAdditionsTest.m"; sourceTree = "<group>"; };
+		83199A3F11AAC7E100F65375 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GHUnit.framework; path = Frameworks/GHUnit.framework; sourceTree = "<group>"; };
+		83199A4011AAC7E100F65375 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Frameworks/RegexKit.framework; sourceTree = "<group>"; };
 		831CA047117F20B6009C0E6D /* libfcgi.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libfcgi.dylib; path = /usr/lib/libfcgi.dylib; sourceTree = "<absolute>"; };
-		831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerThread.h; sourceTree = "<group>"; };
-		831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerThread.m; sourceTree = "<group>"; };
-		831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTFastCGIAcceptWorkerOperation.h; sourceTree = "<group>"; };
-		831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTFastCGIAcceptWorkerOperation.m; sourceTree = "<group>"; };
-		831CA24511814742009C0E6D /* NSThread+GNUStep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSThread+GNUStep.h"; sourceTree = "<group>"; };
-		831CA28C1182BD35009C0E6D /* CTRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequest.h; sourceTree = "<group>"; };
-		831CA28D1182BD35009C0E6D /* CTRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequest.m; sourceTree = "<group>"; };
 		83452607117D9E910042DD00 /* Cioccolata.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cioccolata.h; sourceTree = "<group>"; };
-		8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CTRequest+FCGX.h"; sourceTree = "<group>"; };
-		8369003011A3E99500FE0772 /* CTRequest+FCGX.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CTRequest+FCGX.m"; sourceTree = "<group>"; };
 		8369005F11A4129500FE0772 /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
-		837D436411A6A9280072F242 /* GHUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GHUnit.framework; sourceTree = "<group>"; };
 		837D438C11A6AA300072F242 /* Tests.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tests.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		837D438E11A6AA300072F242 /* Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Tests-Info.plist"; sourceTree = "<group>"; };
 		837D439E11A6ABA00072F242 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
-		837D43A411A6ACC40072F242 /* CTRequestTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTRequestTest.h; sourceTree = "<group>"; };
-		837D43A511A6ACC40072F242 /* CTRequestTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTRequestTest.m; sourceTree = "<group>"; };
 		837D43F111A6B56A0072F242 /* GHUnitTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitTest_Prefix.pch; sourceTree = "<group>"; };
 		837D46A011A7A4A10072F242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		837D479211A837A60072F242 /* NSDictionary+CioccolataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CioccolataAdditions.h"; sourceTree = "<group>"; };
-		837D479311A837A60072F242 /* NSDictionary+CioccolataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CioccolataAdditions.m"; sourceTree = "<group>"; };
-		837D479911A83BA00072F242 /* NSDictionary+CioccolataAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+CioccolataAdditionsTest.h"; sourceTree = "<group>"; };
-		837D479A11A83BA00072F242 /* NSDictionary+CioccolataAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+CioccolataAdditionsTest.m"; sourceTree = "<group>"; };
-		837D47DC11A83F5F0072F242 /* CTQueryStringParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTQueryStringParser.h; sourceTree = "<group>"; };
-		837D47DD11A83F5F0072F242 /* CTQueryStringParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTQueryStringParser.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -100,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837D439811A6AACE0072F242 /* GHUnit.framework in Frameworks */,
+				83199A6411AAC80000F65375 /* GHUnit.framework in Frameworks */,
 				837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,8 +130,8 @@
 		0867D691FE84028FC02AAC07 /* Cioccolata */ = {
 			isa = PBXGroup;
 			children = (
-				8369006811A4131200FE0772 /* Tests */,
-				08FB77AEFE84172EC02AAC07 /* Classes */,
+				83199A3111AAC78D00F65375 /* Tests */,
+				83199A0911AAC6E400F65375 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
@@ -159,29 +160,11 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		08FB77AEFE84172EC02AAC07 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				837D43F011A6B52C0072F242 /* HTTP */,
-				831CA24F11816427009C0E6D /* CrossPlatformAdditions */,
-				831CA037117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h */,
-				831CA038117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m */,
-				831CA0C4117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h */,
-				831CA14E117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m */,
-				831CA16F117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h */,
-				831CA170117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m */,
-				837D479211A837A60072F242 /* NSDictionary+CioccolataAdditions.h */,
-				837D479311A837A60072F242 /* NSDictionary+CioccolataAdditions.m */,
-				837D47DC11A83F5F0072F242 /* CTQueryStringParser.h */,
-				837D47DD11A83F5F0072F242 /* CTQueryStringParser.m */,
-			);
-			name = Classes;
-			sourceTree = "<group>";
-		};
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				837D436411A6A9280072F242 /* GHUnit.framework */,
+				83199A3F11AAC7E100F65375 /* GHUnit.framework */,
+				83199A4011AAC7E100F65375 /* RegexKit.framework */,
 				831CA047117F20B6009C0E6D /* libfcgi.dylib */,
 				837D46A011A7A4A10072F242 /* Foundation.framework */,
 			);
@@ -206,42 +189,77 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		831CA24F11816427009C0E6D /* CrossPlatformAdditions */ = {
+		83199A0911AAC6E400F65375 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				831CA24511814742009C0E6D /* NSThread+GNUStep.h */,
+				83199A3B11AAC7AD00F65375 /* Parsing */,
+				83199A2A11AAC72100F65375 /* CrossPlatformAdditions */,
+				83199A2911AAC6FA00F65375 /* FastCGI */,
+				83199A2811AAC6EB00F65375 /* HTTP */,
+				83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */,
+				83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		83199A2811AAC6EB00F65375 /* HTTP */ = {
+			isa = PBXGroup;
+			children = (
+				83199A1411AAC6E400F65375 /* CTRequest.h */,
+				83199A1511AAC6E400F65375 /* CTRequest.m */,
+			);
+			name = HTTP;
+			sourceTree = "<group>";
+		};
+		83199A2911AAC6FA00F65375 /* FastCGI */ = {
+			isa = PBXGroup;
+			children = (
+				83199A0A11AAC6E400F65375 /* CTFastCGIAcceptLoop.h */,
+				83199A0B11AAC6E400F65375 /* CTFastCGIAcceptLoop.m */,
+				83199A0C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h */,
+				83199A0D11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m */,
+				83199A0E11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.h */,
+				83199A0F11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.m */,
+				83199A1211AAC6E400F65375 /* CTRequest+FCGX.h */,
+				83199A1311AAC6E400F65375 /* CTRequest+FCGX.m */,
+			);
+			name = FastCGI;
+			sourceTree = "<group>";
+		};
+		83199A2A11AAC72100F65375 /* CrossPlatformAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				83199A1811AAC6E400F65375 /* NSThread+GNUStep.h */,
 			);
 			name = CrossPlatformAdditions;
 			sourceTree = "<group>";
 		};
-		8369006811A4131200FE0772 /* Tests */ = {
+		83199A3111AAC78D00F65375 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				837D479811A83B7A0072F242 /* HTTP */,
-				837D479911A83BA00072F242 /* NSDictionary+CioccolataAdditionsTest.h */,
-				837D479A11A83BA00072F242 /* NSDictionary+CioccolataAdditionsTest.m */,
+				83199A3A11AAC79900F65375 /* HTTP */,
+				83199A3411AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.h */,
+				83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */,
 			);
-			name = Tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
-		837D43F011A6B52C0072F242 /* HTTP */ = {
+		83199A3A11AAC79900F65375 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				831CA28C1182BD35009C0E6D /* CTRequest.h */,
-				831CA28D1182BD35009C0E6D /* CTRequest.m */,
-				8369002F11A3E99500FE0772 /* CTRequest+FCGX.h */,
-				8369003011A3E99500FE0772 /* CTRequest+FCGX.m */,
+				83199A3211AAC78D00F65375 /* CTRequestTest.h */,
+				83199A3311AAC78D00F65375 /* CTRequestTest.m */,
 			);
 			name = HTTP;
 			sourceTree = "<group>";
 		};
-		837D479811A83B7A0072F242 /* HTTP */ = {
+		83199A3B11AAC7AD00F65375 /* Parsing */ = {
 			isa = PBXGroup;
 			children = (
-				837D43A411A6ACC40072F242 /* CTRequestTest.h */,
-				837D43A511A6ACC40072F242 /* CTRequestTest.m */,
+				83199A1011AAC6E400F65375 /* CTQueryStringParser.h */,
+				83199A1111AAC6E400F65375 /* CTQueryStringParser.m */,
 			);
-			name = HTTP;
+			name = Parsing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,14 +270,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				83452608117D9E910042DD00 /* Cioccolata.h in Headers */,
-				831CA039117F1CEC009C0E6D /* CTFastCGIAcceptLoop.h in Headers */,
-				831CA0C6117F2FB8009C0E6D /* CTFastCGIAcceptWorkerThread.h in Headers */,
-				831CA171117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.h in Headers */,
-				831CA24611814742009C0E6D /* NSThread+GNUStep.h in Headers */,
-				831CA28E1182BD35009C0E6D /* CTRequest.h in Headers */,
-				8369003111A3E99500FE0772 /* CTRequest+FCGX.h in Headers */,
-				837D479411A837A60072F242 /* NSDictionary+CioccolataAdditions.h in Headers */,
-				837D47DE11A83F5F0072F242 /* CTQueryStringParser.h in Headers */,
+				83199A1911AAC6E400F65375 /* CTFastCGIAcceptLoop.h in Headers */,
+				83199A1B11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h in Headers */,
+				83199A1D11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.h in Headers */,
+				83199A1F11AAC6E400F65375 /* CTQueryStringParser.h in Headers */,
+				83199A2111AAC6E400F65375 /* CTRequest+FCGX.h in Headers */,
+				83199A2311AAC6E400F65375 /* CTRequest.h in Headers */,
+				83199A2511AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h in Headers */,
+				83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +364,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				837D479F11A83BD20072F242 /* NSDictionary+CioccolataAdditionsTest.m in Sources */,
 				837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */,
-				837D43A611A6ACC40072F242 /* CTRequestTest.m in Sources */,
+				83199A3611AAC78D00F65375 /* CTRequestTest.m in Sources */,
+				83199A3711AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,13 +374,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				831CA03A117F1CEC009C0E6D /* CTFastCGIAcceptLoop.m in Sources */,
-				831CA150117F444F009C0E6D /* CTFastCGIAcceptWorkerThread.m in Sources */,
-				831CA172117F4B49009C0E6D /* CTFastCGIAcceptWorkerOperation.m in Sources */,
-				831CA28F1182BD35009C0E6D /* CTRequest.m in Sources */,
-				8369003211A3E99500FE0772 /* CTRequest+FCGX.m in Sources */,
-				837D479511A837A60072F242 /* NSDictionary+CioccolataAdditions.m in Sources */,
-				837D47DF11A83F5F0072F242 /* CTQueryStringParser.m in Sources */,
+				83199A1A11AAC6E400F65375 /* CTFastCGIAcceptLoop.m in Sources */,
+				83199A1C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m in Sources */,
+				83199A1E11AAC6E400F65375 /* CTFastCGIAcceptWorkerThread.m in Sources */,
+				83199A2011AAC6E400F65375 /* CTQueryStringParser.m in Sources */,
+				83199A2211AAC6E400F65375 /* CTRequest+FCGX.m in Sources */,
+				83199A2411AAC6E400F65375 /* CTRequest.m in Sources */,
+				83199A2611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +417,7 @@
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -427,6 +446,7 @@
 					"$(inherited)",
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
@@ -473,6 +493,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -505,6 +526,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/Frameworks\"",
 				);
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_MODEL_TUNING = G5;

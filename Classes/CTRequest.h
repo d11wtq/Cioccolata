@@ -21,10 +21,10 @@
 	NSDictionary *get;
 	NSString *ip;
 	NSString *method;
+	NSString *charsetName;
 	/* TODO:
 	 mimeType
 	 encoding
-	 encodingName
 	 post
 	 files
 	 inputStream
@@ -88,6 +88,13 @@
  *			One of GET, POST, PUT, DELETE, HEAD, or if implemented, a custom method.
  */
 @property (readonly) NSString *method;
+
+/*!
+ * @brief	When specified in the request (i.e. during POST, PUT etc) indicates the charset of the request body.
+ * 
+ * @see		-encoding
+ */
+@property (readonly) NSString *charsetName;
 
 
 #pragma mark -

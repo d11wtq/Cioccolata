@@ -22,6 +22,7 @@
 @synthesize get;
 @synthesize ip;
 @synthesize method;
+@synthesize charsetName;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -33,7 +34,12 @@
 		return nil;
 	}
 	
-	env = [[NSDictionary alloc] initWithDictionary:dictionary];
+	env = [dictionary retain];
+	
+	NSString *contentType = [self headerWithName:@"Content-Type"];
+	if (nil != contentType) {
+		//
+	}
 	
 	method = [env objectForKey:@"REQUEST_METHOD"];
 	
@@ -111,6 +117,7 @@
 	[get release];
 	[ip release];
 	[method release];
+	[charsetName release];
 	[super dealloc];
 }
 
