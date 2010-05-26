@@ -8,6 +8,7 @@
 
 #import "CTRequest.h"
 #import "NSDictionary+CioccolataAdditions.h"
+#import "CTContentTypeHeaderParser.h"
 
 
 @implementation CTRequest
@@ -38,7 +39,8 @@
 	
 	NSString *contentType = [self headerWithName:@"Content-Type"];
 	if (nil != contentType) {
-		//
+		CTContentTypeHeaderParser *parser = [CTContentTypeHeaderParser parserWithContentTypeHeader:contentType];
+		charsetName = [parser.charset copy];
 	}
 	
 	method = [env objectForKey:@"REQUEST_METHOD"];

@@ -8,6 +8,9 @@
 
 #import "CTQueryStringParser.h"
 
+/*
+ FIXME: I'm pretty sure this can be greatly improved with NSScanner
+ */
 
 @implementation CTQueryStringParser
 
@@ -55,10 +58,6 @@
 						 stringByReplacingPercentEscapesUsingEncoding:encoding]];
 		
 		do {
-			/*if (string.length <= braceOpen.location + 1) {
-				break;
-			}*/
-			
 			[string deleteCharactersInRange:NSMakeRange(0, braceOpen.location + 1)];
 			
 			NSRange braceClose = [string rangeOfString:@"]"];
@@ -90,10 +89,6 @@
 			}
 			
 			[array addObject:thisKey];
-			
-			/*if ([string length] <= braceClose.location + 1) {
-				break;
-			}*/
 			
 			[string deleteCharactersInRange:NSMakeRange(0, braceClose.location + 1)];
 			
