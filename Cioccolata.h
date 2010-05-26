@@ -11,7 +11,3 @@
 #import "NSThread+GNUStep.h"
 #import "NSDictionary+CioccolataAdditions.h"
 #import "CTRequest.h"
-#import "CTRegexMatching.h"
-#import "CTRegexMatchingResult.h"
-#import "CTRegexMatchingCaptureGroup.h"
-#import "CTMatcher.h"
