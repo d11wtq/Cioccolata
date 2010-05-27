@@ -44,7 +44,7 @@
 		[acceptLock release];
 		
 		if (0 > accept) {
-			NSLog(@"FastCGI Worker unable to accept requests; terminating");
+			// FIXME: Unable to handle request.  Notify somebody, such as a delegate.
 			break;
 		}
 		

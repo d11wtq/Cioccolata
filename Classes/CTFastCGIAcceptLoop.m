@@ -41,8 +41,6 @@
 }
 
 - (void)acceptRequests {
-	NSLog(@"Accepting FastCGI connections");
-	
 	FCGX_Init(); int c = 0;
 	
 	for (int i = 0, count = self.maxConcurrentOperationCount - 1; i < count; ++i) {

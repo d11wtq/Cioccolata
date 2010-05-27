@@ -15,7 +15,7 @@
 	NSMutableDictionary *envDict = [[NSMutableDictionary alloc] init];
 	
 	for( ; *(request.envp) != NULL; request.envp++) {
-		NSString *envString = [NSString stringWithCString:*(request.envp) encoding:NSASCIIStringEncoding];
+		NSString *envString = [NSString stringWithCString:*(request.envp) encoding:NSUTF8StringEncoding];
 		
 		NSRange eqRange = [envString rangeOfString:@"="];
 		

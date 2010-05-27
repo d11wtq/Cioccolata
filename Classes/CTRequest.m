@@ -10,7 +10,6 @@
 #import "NSDictionary+CioccolataAdditions.h"
 #import "CTContentTypeHeaderParser.h"
 
-
 @implementation CTRequest
 
 @synthesize env;
@@ -47,7 +46,6 @@
 	
 	host = [env objectForKey:@"SERVER_NAME"];
 	if (nil == host) {
-		NSLog(@"WARNING: FastCGI application loaded without SERVER_NAME, falling back to 127.0.0.1");
 		host = @"127.0.0.1";
 	}
 	
@@ -55,7 +53,6 @@
 	
 	path = [env objectForKey:@"SCRIPT_NAME"];
 	if (nil == path) {
-		NSLog(@"WARNING: FastCGI application loaded without SCRIPT_NAME, falling back to /");
 		path = @"/";
 	} else if ([path isEqual:@""]) {
 		path = @"/";
@@ -72,7 +69,7 @@
 	}
 	
 	NSString *uri = [NSString stringWithFormat:@"%@%@",
-					 [path stringByAddingPercentEscapesUsingEncoding:NSASCIIStringEncoding],
+					 [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
 					 queryWithLeadingQuestionMark];
 	
 	isSSL = [[env objectForKey:@"HTTPS"] isEqual:@"on"];
@@ -84,7 +81,7 @@
 	
 	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@://%@%@", (isSSL ? @"https" : @"http"), hostWithPort, uri]];
 	
-	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSASCIIStringEncoding];
+	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSUTF8StringEncoding];
 	
 	ip = [env objectForKey:@"REMOTE_ADDR"];
 	
