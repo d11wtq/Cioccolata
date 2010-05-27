@@ -34,6 +34,8 @@
 		837D46A411A7A4A80072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D46A011A7A4A10072F242 /* Foundation.framework */; };
 		83BB2EFE11AD27B60015AFFB /* CTContentTypeHeaderParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BB2EFC11AD27B60015AFFB /* CTContentTypeHeaderParser.h */; };
 		83BB2EFF11AD27B60015AFFB /* CTContentTypeHeaderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BB2EFD11AD27B60015AFFB /* CTContentTypeHeaderParser.m */; };
+		83BB2F9D11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */; };
+		83BB2F9E11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BB2F9C11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +98,8 @@
 		837D46A011A7A4A10072F242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		83BB2EFC11AD27B60015AFFB /* CTContentTypeHeaderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTContentTypeHeaderParser.h; sourceTree = "<group>"; };
 		83BB2EFD11AD27B60015AFFB /* CTContentTypeHeaderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTContentTypeHeaderParser.m; sourceTree = "<group>"; };
+		83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTStringEncodingLookupTable.h; sourceTree = "<group>"; };
+		83BB2F9C11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTStringEncodingLookupTable.m; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* Cioccolata.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Cioccolata.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -202,6 +206,8 @@
 				83199A2811AAC6EB00F65375 /* HTTP */,
 				83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */,
 				83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */,
+				83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */,
+				83BB2F9C11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -285,6 +291,7 @@
 				83199A2511AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h in Headers */,
 				83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */,
 				83BB2EFE11AD27B60015AFFB /* CTContentTypeHeaderParser.h in Headers */,
+				83BB2F9D11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +396,7 @@
 				83199A2411AAC6E400F65375 /* CTRequest.m in Sources */,
 				83199A2611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m in Sources */,
 				83BB2EFF11AD27B60015AFFB /* CTContentTypeHeaderParser.m in Sources */,
+				83BB2F9E11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

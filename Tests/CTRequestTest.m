@@ -14,8 +14,8 @@
 - (void)testEnvironmentIsReadFromDictionary {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"x", @"Y", @"z", @"A", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"x", [req.env objectForKey:@"Y"], @"Dictionary should provide enviornment");
-	GHAssertEqualStrings(@"z", [req.env objectForKey:@"A"], @"Dictionary should provide enviornment");
+	GHAssertEqualStrings(@"x", [req.env objectForKey:@"Y"], @"Dictionary should provide environment");
+	GHAssertEqualStrings(@"z", [req.env objectForKey:@"A"], @"Dictionary should provide environment");
 	[req release];
 }
 
@@ -236,6 +236,13 @@
 	[req release];
 }
 
+- (void)testUppercasedCharsetIsInferredFromContentTypeHeader {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=UTF-8", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"UTF-8", req.charsetName, @"Charset name should be inferred from HTTP_CONTENT_TYPE");
+	[req release];
+}
+
 - (void)testMimeTypeIsInferredFromContentTypeHeader {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml", @"HTTP_CONTENT_TYPE", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
@@ -247,6 +254,139 @@
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-8", @"HTTP_CONTENT_TYPE", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
 	GHAssertEqualStrings(@"application/xml", req.mimeType, @"MIME type should be inferred from HTTP_CONTENT_TYPE");
+	[req release];
+}
+
+- (void)testStringEncodingForASCIICharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=us-ascii", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSASCIIStringEncoding, req.stringEncoding, @"String encoding should be for US-ASCII");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF8Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-8", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF8StringEncoding, req.stringEncoding, @"String encoding should be for UTF-8");
+	[req release];
+}
+
+- (void)testStringEncodingForLatin1Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=iso-8859-1", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSISOLatin1StringEncoding, req.stringEncoding, @"String encoding should be for ISO-8859-1");
+	[req release];
+}
+
+- (void)testStringEncodingForLatin2Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=iso-8859-2", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSISOLatin2StringEncoding, req.stringEncoding, @"String encoding should be for ISO-8859-2");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF16Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=UTF-16", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUnicodeStringEncoding, req.stringEncoding, @"String encoding should be for unicode");
+	[req release];
+}
+
+- (void)testStringEncodingForWindows1250Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=windows-1250", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSWindowsCP1250StringEncoding, req.stringEncoding, @"String encoding should be for Windows-1250");
+	[req release];
+}
+
+- (void)testStringEncodingForWindows1251Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=windows-1251", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSWindowsCP1251StringEncoding, req.stringEncoding, @"String encoding should be for Windows-1251");
+	[req release];
+}
+
+- (void)testStringEncodingForWindows1252Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=windows-1252", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSWindowsCP1252StringEncoding, req.stringEncoding, @"String encoding should be for Windows-1252");
+	[req release];
+}
+
+- (void)testStringEncodingForWindows1253Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=windows-1253", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSWindowsCP1253StringEncoding, req.stringEncoding, @"String encoding should be for Windows-1253");
+	[req release];
+}
+
+- (void)testStringEncodingForWindows1254Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=windows-1254", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSWindowsCP1254StringEncoding, req.stringEncoding, @"String encoding should be for Windows-1254");
+	[req release];
+}
+
+- (void)testStringEncodingForISO2022JPCharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=ISO-2022-JP", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSISO2022JPStringEncoding, req.stringEncoding, @"String encoding should be for ISO-2022-JP");
+	[req release];
+}
+
+- (void)testStringEncodingForShift_JISCharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=Shift_JIS", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSShiftJISStringEncoding, req.stringEncoding, @"String encoding should be for Shift_JIS");
+	[req release];
+}
+
+- (void)testStringEncodingForEUC_JPCharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=EUC-JP", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSJapaneseEUCStringEncoding, req.stringEncoding, @"String encoding should be for EUC-JP");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF32Charset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-32", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF32StringEncoding, req.stringEncoding, @"String encoding should be for UTF-32");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF32BECharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-32BE", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF32BigEndianStringEncoding, req.stringEncoding, @"String encoding should be for UTF-32BE");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF32LECharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-32LE", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF32LittleEndianStringEncoding, req.stringEncoding, @"String encoding should be for UTF-32LE");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF16BECharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-16BE", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF16BigEndianStringEncoding, req.stringEncoding, @"String encoding should be for UTF-16BE");
+	[req release];
+}
+
+- (void)testStringEncodingForUTF16LECharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-16LE", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSUTF16LittleEndianStringEncoding, req.stringEncoding, @"String encoding should be for UTF-16LE");
+	[req release];
+}
+
+- (void)testStringEncodingForMacintoshCharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=macintosh", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEquals((NSStringEncoding) NSMacOSRomanStringEncoding, req.stringEncoding, @"String encoding should be for mac");
 	[req release];
 }
 

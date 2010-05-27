@@ -9,6 +9,9 @@
 #import "CTRequest.h"
 #import "NSDictionary+CioccolataAdditions.h"
 #import "CTContentTypeHeaderParser.h"
+#import "CTStringEncodingLookupTable.h"
+
+static CTStringEncodingLookupTable *charsetLookupTable = nil;
 
 @implementation CTRequest
 
@@ -24,6 +27,7 @@
 @synthesize method;
 @synthesize charsetName;
 @synthesize mimeType;
+@synthesize stringEncoding;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -44,6 +48,8 @@
 		mimeType = [parser.mimeType copy];
 	}
 	
+	stringEncoding = [self stringEncodingFromCharsetName:charsetName];
+	
 	method = [env objectForKey:@"REQUEST_METHOD"];
 	
 	host = [env objectForKey:@"SERVER_NAME"];
@@ -51,7 +57,7 @@
 		host = @"127.0.0.1";
 	}
 	
-	port = [[env objectForKey:@"SERVER_PORT"] integerValue];
+	port = (NSInteger) [[env objectForKey:@"SERVER_PORT"] integerValue];
 	
 	path = [env objectForKey:@"SCRIPT_NAME"];
 	if (nil == path) {
@@ -77,7 +83,7 @@
 	isSSL = [[env objectForKey:@"HTTPS"] isEqual:@"on"];
 	
 	NSString *hostWithPort = host;
-	if ((isSSL && port != 443) || (!isSSL && port != 80)) {
+	if ((isSSL && port != (NSInteger) 443) || (!isSSL && port != (NSInteger) 80)) {
 		hostWithPort = [NSString stringWithFormat:@"%@:%d", host, port];
 	}
 	
@@ -107,6 +113,15 @@
 	NSString *canonicalizedName = [NSString stringWithFormat:@"HTTP_%@",
 								   [[headerName uppercaseString] stringByReplacingOccurrencesOfString:@"-" withString:@"_"]];
 	return [env objectForKey:canonicalizedName];
+}
+
+- (NSStringEncoding)stringEncodingFromCharsetName:(NSString *)name {
+	if (charsetLookupTable == nil) {
+		// This way live on the heap forever.  It's a deliberate optimization.
+		charsetLookupTable = [[CTStringEncodingLookupTable alloc] initWithDefaultEncoding:NSUTF8StringEncoding];
+	}
+	
+	return [charsetLookupTable encodingForCharsetName:name];
 }
 
 - (void)dealloc {

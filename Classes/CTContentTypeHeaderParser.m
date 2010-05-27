@@ -21,15 +21,12 @@
 		return nil;
 	}
 	
-	unsigned int a = 'a', zero = '0';
+	NSMutableCharacterSet *alphaNumSet = [NSMutableCharacterSet alphanumericCharacterSet];
 	
-	NSMutableCharacterSet *alphaNumSet = [NSMutableCharacterSet characterSetWithRange:NSMakeRange(a, 26)];
-	[alphaNumSet addCharactersInRange:NSMakeRange(zero, 10)];
-	
-	NSMutableCharacterSet *mimeTypeSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"/-"];
+	NSMutableCharacterSet *mimeTypeSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"/-."];
 	[mimeTypeSet formUnionWithCharacterSet:alphaNumSet];
 	
-	NSMutableCharacterSet *charsetSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"-"];
+	NSMutableCharacterSet *charsetSet = [NSMutableCharacterSet characterSetWithCharactersInString:@"-_."];
 	[charsetSet formUnionWithCharacterSet:alphaNumSet];
 	
 	// Initialize a case-insensitive scanner

@@ -23,11 +23,11 @@
 	NSString *method;
 	NSString *charsetName;
 	NSString *mimeType;
+	NSStringEncoding stringEncoding;
 	/* TODO:
-	 encoding
 	 post
-	 files
 	 inputStream
+	 files
 	 cookies
 	 session - ?
 	 */
@@ -103,6 +103,13 @@
  */
 @property (readonly) NSString *mimeType;
 
+/*!
+ * @brief	Get the appropriate NSStringEncoding for contents of the request body.
+ *			If a charset was specified in the content-type header, the encoding is inferred from that, otherwise
+ *			the default string encoding is returned.
+ */
+@property (readonly) NSStringEncoding stringEncoding;
+
 
 #pragma mark -
 #pragma mark Initialization methods
@@ -149,5 +156,19 @@
  * @return	The value of the header, or nil of not found.
  */
 - (NSString *)headerWithName:(NSString *)headerName;
+
+
+#pragma mark -
+#pragma mark Utility methods
+
+/*!
+ * Get the NSStringEncoding for the given charset name.
+ * 
+ * @param	The IANA name of the charset, or an alias of it.
+ * 
+ * @return	The NSStringEncoding for this charset.
+ */
+- (NSStringEncoding)stringEncodingFromCharsetName:(NSString *)name;
+
 
 @end
