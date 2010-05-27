@@ -36,10 +36,8 @@
 	NSScanner *scanner = [NSScanner scannerWithString:headerString];
 	[scanner setCaseSensitive:NO];
 	
-	// Skip past the Content-Type: section
-	if ([scanner scanUpToCharactersFromSet:mimeTypeSet intoString:NULL]) {
-		[scanner scanCharactersFromSet:mimeTypeSet intoString:&mimeType];
-	}
+	// Scan everything up to the first parameter
+	[scanner scanUpToString:@";" intoString:&mimeType];
 	
 	// Ignore quotes as well as whitespace
 	[scanner setCharactersToBeSkipped:[NSCharacterSet characterSetWithCharactersInString:@"\r\n\t \""]];

@@ -23,6 +23,7 @@
 @synthesize ip;
 @synthesize method;
 @synthesize charsetName;
+@synthesize mimeType;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -40,6 +41,7 @@
 	if (nil != contentType) {
 		CTContentTypeHeaderParser *parser = [CTContentTypeHeaderParser parserWithContentTypeHeader:contentType];
 		charsetName = [parser.charset copy];
+		mimeType = [parser.mimeType copy];
 	}
 	
 	method = [env objectForKey:@"REQUEST_METHOD"];
@@ -117,6 +119,7 @@
 	[ip release];
 	[method release];
 	[charsetName release];
+	[mimeType release];
 	[super dealloc];
 }
 

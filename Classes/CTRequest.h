@@ -22,8 +22,8 @@
 	NSString *ip;
 	NSString *method;
 	NSString *charsetName;
+	NSString *mimeType;
 	/* TODO:
-	 mimeType
 	 encoding
 	 post
 	 files
@@ -90,11 +90,18 @@
 @property (readonly) NSString *method;
 
 /*!
- * @brief	When specified in the request (i.e. during POST, PUT etc) indicates the charset of the request body.
+ * @brief	When specified in the request (i.e. during POST, PUT) indicates the charset of the request body.
+ *			Note that this will be nil if not set in the request headers.
  * 
- * @see		-encoding
+ * @see		-stringEncoding
  */
 @property (readonly) NSString *charsetName;
+
+/*!
+ * @brief	When specified in the request (i.e. during POST, PUT) indicates the content-type of the request body.
+ *			Note that this will be nil if not set in the request headers.
+ */
+@property (readonly) NSString *mimeType;
 
 
 #pragma mark -

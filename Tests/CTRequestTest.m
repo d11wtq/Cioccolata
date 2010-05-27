@@ -232,7 +232,21 @@
 - (void)testCharsetIsInferredFromContentTypeHeader {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-8", @"HTTP_CONTENT_TYPE", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"utf-8", [req charsetName], @"Charset name should be inferred from HTTP_CONTENT_TYPE");
+	GHAssertEqualStrings(@"utf-8", req.charsetName, @"Charset name should be inferred from HTTP_CONTENT_TYPE");
+	[req release];
+}
+
+- (void)testMimeTypeIsInferredFromContentTypeHeader {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"application/xml", req.mimeType, @"MIME type should be inferred from HTTP_CONTENT_TYPE");
+	[req release];
+}
+
+- (void)testMimeTypeIsInferredFromContentTypeHeaderWithCharset {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/xml; charset=utf-8", @"HTTP_CONTENT_TYPE", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"application/xml", req.mimeType, @"MIME type should be inferred from HTTP_CONTENT_TYPE");
 	[req release];
 }
 
