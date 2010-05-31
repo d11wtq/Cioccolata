@@ -17,17 +17,19 @@
  * Create a dictionary by parsing the components of the given query string.
  * 
  * @param		The encoded query string to parse, without the leading question mark.
- * @return		A tree structure based around NSDictionary, containing the parameters in the query string.
+ * 
+ * @returns		A tree structure based around NSDictionary, containing the parameters in the query string.
  */
-+ (NSDictionary *)dictionaryByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding;
++ (NSDictionary *)dictionaryByParsingQueryString:(NSString *)queryString;
 
 /*!
  * Create a dictionary by parsing the components of the given query string.
  *
  * @param		The encoded query string to parse, without the leading question mark.
- * @return		A tree structure based around NSDictionary, containing the parameters in the query string.
+ * 
+ * @returns		A tree structure based around NSDictionary, containing the parameters in the query string.
  */
-- (id)initByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding;
+- (id)initByParsingQueryString:(NSString *)queryString;
 
 
 @end

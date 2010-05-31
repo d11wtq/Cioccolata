@@ -12,13 +12,13 @@
 
 @implementation NSDictionary(CioccolataAdditions)
 
-+ (id)dictionaryByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding {
-	return [[[self alloc] initByParsingQueryString:queryString withEncoding:encoding] autorelease];
++ (id)dictionaryByParsingQueryString:(NSString *)queryString {
+	return [[[self alloc] initByParsingQueryString:queryString] autorelease];
 }
 
-- (id)initByParsingQueryString:(NSString *)queryString withEncoding:(NSStringEncoding)encoding {
+- (id)initByParsingQueryString:(NSString *)queryString {
 	CTQueryStringParser *parser = [[CTQueryStringParser alloc] init];
-	NSDictionary *params = [parser parseQuery:queryString usingEncoding:encoding];
+	NSDictionary *params = [parser parseQuery:queryString];
 	[parser release];
 	
 	return [self initWithDictionary:params];

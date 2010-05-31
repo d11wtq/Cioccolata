@@ -69,6 +69,13 @@
 	[req release];
 }
 
+- (void)testPlusInQueryStringIsDecodedAsSpace {
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a+b", @"QUERY_STRING", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
+	GHAssertEqualStrings(@"a b", [req param:@"q"], @"Parameter q should be URL-decoded a%20b");
+	[req release];
+}
+
 - (void)testGETParametersCanHaveNamedDictionaryKeys {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo]=a&c=3&q[bar]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];

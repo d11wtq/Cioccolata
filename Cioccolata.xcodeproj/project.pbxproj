@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		83199A1911AAC6E400F65375 /* CTFastCGIAcceptLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0A11AAC6E400F65375 /* CTFastCGIAcceptLoop.h */; };
+		83199A1911AAC6E400F65375 /* CTFastCGIAcceptLoop.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0A11AAC6E400F65375 /* CTFastCGIAcceptLoop.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83199A1A11AAC6E400F65375 /* CTFastCGIAcceptLoop.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A0B11AAC6E400F65375 /* CTFastCGIAcceptLoop.m */; };
 		83199A1B11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A0C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.h */; };
 		83199A1C11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A0D11AAC6E400F65375 /* CTFastCGIAcceptWorkerOperation.m */; };
@@ -17,11 +17,11 @@
 		83199A2011AAC6E400F65375 /* CTQueryStringParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1111AAC6E400F65375 /* CTQueryStringParser.m */; };
 		83199A2111AAC6E400F65375 /* CTRequest+FCGX.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1211AAC6E400F65375 /* CTRequest+FCGX.h */; };
 		83199A2211AAC6E400F65375 /* CTRequest+FCGX.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1311AAC6E400F65375 /* CTRequest+FCGX.m */; };
-		83199A2311AAC6E400F65375 /* CTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1411AAC6E400F65375 /* CTRequest.h */; };
+		83199A2311AAC6E400F65375 /* CTRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1411AAC6E400F65375 /* CTRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83199A2411AAC6E400F65375 /* CTRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1511AAC6E400F65375 /* CTRequest.m */; };
-		83199A2511AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */; };
+		83199A2511AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83199A2611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */; };
-		83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1811AAC6E400F65375 /* NSThread+GNUStep.h */; };
+		83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */ = {isa = PBXBuildFile; fileRef = 83199A1811AAC6E400F65375 /* NSThread+GNUStep.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83199A3611AAC78D00F65375 /* CTRequestTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A3311AAC78D00F65375 /* CTRequestTest.m */; };
 		83199A3711AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */; };
 		83199A6411AAC80000F65375 /* GHUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83199A3F11AAC7E100F65375 /* GHUnit.framework */; };
@@ -32,6 +32,9 @@
 		837D43A211A6ABF40072F242 /* Cioccolata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
 		837D43C111A6AF840072F242 /* Cioccolata.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* Cioccolata.framework */; };
 		837D46A411A7A4A80072F242 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 837D46A011A7A4A10072F242 /* Foundation.framework */; };
+		83A4C4D611B3D0FE00AE580E /* NSString+CioccolataAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 83A4C4D411B3D0FE00AE580E /* NSString+CioccolataAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		83A4C4D711B3D0FE00AE580E /* NSString+CioccolataAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A4C4D511B3D0FE00AE580E /* NSString+CioccolataAdditions.m */; };
+		83A4C51C11B3DB9D00AE580E /* NSString+CioccolataAdditionsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 83A4C51511B3D91300AE580E /* NSString+CioccolataAdditionsTest.m */; };
 		83BB2EFE11AD27B60015AFFB /* CTContentTypeHeaderParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BB2EFC11AD27B60015AFFB /* CTContentTypeHeaderParser.h */; };
 		83BB2EFF11AD27B60015AFFB /* CTContentTypeHeaderParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 83BB2EFD11AD27B60015AFFB /* CTContentTypeHeaderParser.m */; };
 		83BB2F9D11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */; };
@@ -96,6 +99,10 @@
 		837D439E11A6ABA00072F242 /* GHUnitTestMain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHUnitTestMain.m; sourceTree = "<group>"; };
 		837D43F111A6B56A0072F242 /* GHUnitTest_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHUnitTest_Prefix.pch; sourceTree = "<group>"; };
 		837D46A011A7A4A10072F242 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		83A4C4D411B3D0FE00AE580E /* NSString+CioccolataAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CioccolataAdditions.h"; sourceTree = "<group>"; };
+		83A4C4D511B3D0FE00AE580E /* NSString+CioccolataAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CioccolataAdditions.m"; sourceTree = "<group>"; };
+		83A4C51411B3D91300AE580E /* NSString+CioccolataAdditionsTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+CioccolataAdditionsTest.h"; sourceTree = "<group>"; };
+		83A4C51511B3D91300AE580E /* NSString+CioccolataAdditionsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+CioccolataAdditionsTest.m"; sourceTree = "<group>"; };
 		83BB2EFC11AD27B60015AFFB /* CTContentTypeHeaderParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTContentTypeHeaderParser.h; sourceTree = "<group>"; };
 		83BB2EFD11AD27B60015AFFB /* CTContentTypeHeaderParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CTContentTypeHeaderParser.m; sourceTree = "<group>"; };
 		83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CTStringEncodingLookupTable.h; sourceTree = "<group>"; };
@@ -208,6 +215,8 @@
 				83199A1711AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m */,
 				83BB2F9B11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h */,
 				83BB2F9C11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m */,
+				83A4C4D411B3D0FE00AE580E /* NSString+CioccolataAdditions.h */,
+				83A4C4D511B3D0FE00AE580E /* NSString+CioccolataAdditions.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -250,6 +259,8 @@
 				83199A3A11AAC79900F65375 /* HTTP */,
 				83199A3411AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.h */,
 				83199A3511AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m */,
+				83A4C51411B3D91300AE580E /* NSString+CioccolataAdditionsTest.h */,
+				83A4C51511B3D91300AE580E /* NSString+CioccolataAdditionsTest.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -292,6 +303,7 @@
 				83199A2711AAC6E400F65375 /* NSThread+GNUStep.h in Headers */,
 				83BB2EFE11AD27B60015AFFB /* CTContentTypeHeaderParser.h in Headers */,
 				83BB2F9D11AEAFCF0015AFFB /* CTStringEncodingLookupTable.h in Headers */,
+				83A4C4D611B3D0FE00AE580E /* NSString+CioccolataAdditions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +390,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83A4C51C11B3DB9D00AE580E /* NSString+CioccolataAdditionsTest.m in Sources */,
 				837D439F11A6ABA00072F242 /* GHUnitTestMain.m in Sources */,
 				83199A3611AAC78D00F65375 /* CTRequestTest.m in Sources */,
 				83199A3711AAC78D00F65375 /* NSDictionary+CioccolataAdditionsTest.m in Sources */,
@@ -397,6 +410,7 @@
 				83199A2611AAC6E400F65375 /* NSDictionary+CioccolataAdditions.m in Sources */,
 				83BB2EFF11AD27B60015AFFB /* CTContentTypeHeaderParser.m in Sources */,
 				83BB2F9E11AEAFCF0015AFFB /* CTStringEncodingLookupTable.m in Sources */,
+				83A4C4D711B3D0FE00AE580E /* NSString+CioccolataAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

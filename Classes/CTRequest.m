@@ -8,6 +8,7 @@
 
 #import "CTRequest.h"
 #import "NSDictionary+CioccolataAdditions.h"
+#import "NSString+CioccolataAdditions.h"
 #import "CTContentTypeHeaderParser.h"
 #import "CTStringEncodingLookupTable.h"
 
@@ -76,9 +77,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 		queryWithLeadingQuestionMark = [NSString stringWithFormat:@"?%@", query];
 	}
 	
-	NSString *uri = [NSString stringWithFormat:@"%@%@",
-					 [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding],
-					 queryWithLeadingQuestionMark];
+	NSString *uri = [NSString stringWithFormat:@"%@%@", [path rawURLEncodedString], queryWithLeadingQuestionMark];
 	
 	isSSL = [[env objectForKey:@"HTTPS"] isEqual:@"on"];
 	
@@ -89,7 +88,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 	
 	url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"%@://%@%@", (isSSL ? @"https" : @"http"), hostWithPort, uri]];
 	
-	get = [[NSDictionary alloc] initByParsingQueryString:query withEncoding:NSUTF8StringEncoding];
+	get = [[NSDictionary alloc] initByParsingQueryString:query];
 	
 	ip = [env objectForKey:@"REMOTE_ADDR"];
 	

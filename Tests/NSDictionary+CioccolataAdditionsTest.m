@@ -13,27 +13,27 @@
 @implementation NSDictionary_CioccolataAdditionsTest
 
 - (void)testGETParametersAreParsedFromQueryString {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q=a%20b&c=3" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q=a%20b&c=3"];
 	GHAssertEqualStrings(@"a b", [dict objectForKey:@"q"], @"Parameter q should be URL-decoded a%20b");
 	GHAssertEqualStrings(@"3", [dict objectForKey:@"c"], @"Parameter c should be 3");
 }
 
 - (void)testGETParametersCanHaveNamedDictionaryKeys {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo]=a&c=3&q[bar]=b" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo]=a&c=3&q[bar]=b"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:@"bar"], @"Parameter q should be a dictionary with key bar = b");
 }
 
 - (void)testGETParametersWithEmptyBracesAppendNumericalKeysToDictionary {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[]=a&c=3&q[]=b" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[]=a&c=3&q[]=b"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:1]], @"Parameter q should be a dictionary with key 1 = b");
 }
 
 - (void)testGETParametersCanExpresslySetNumericalKeysInDictionary {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[]=a&q[7]=b&q[]=c" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[]=a&q[7]=b&q[]=c"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:7]], @"Parameter q should be a dictionary with key 7 = b");
@@ -41,7 +41,7 @@
 }
 
 - (void)testMultiDimensionalDictionariesCanBeUsed {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[a][][2]=a&q[a][0][]=b" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[a][][2]=a&q[a][0][]=b"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	NSDictionary *q_A = [q objectForKey:@"a"];
 	NSDictionary *q_A_0 = [q_A objectForKey:[NSNumber numberWithInt:0]];
@@ -51,19 +51,19 @@
 }
 
 - (void)testSpuriousOpeningBraceInQueryStringIsAccepted {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo[]=a" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo[]=a"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo["], @"Parameter q should be a dictionary with key foo[ = a");
 }
 
 - (void)testSpuriousTrailingClosingBraceInQueryStringIsIgnored {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo]]=a" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"q[foo]]=a"];
 	NSDictionary *q = [dict objectForKey:@"q"];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
 }
 
 - (void)testSpuriousLeadingAndTrailingBracesInQueryStringAreAccepted {
-	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"]q]=a" withEncoding:NSASCIIStringEncoding];
+	NSDictionary *dict = [NSDictionary dictionaryByParsingQueryString:@"]q]=a"];
 	GHAssertEqualStrings(@"a", [dict objectForKey:@"]q]"], @"Parameter ]q] should be 'a'");
 }
 

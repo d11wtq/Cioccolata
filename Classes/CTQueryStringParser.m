@@ -7,6 +7,7 @@
 //
 
 #import "CTQueryStringParser.h"
+#import "NSString+CioccolataAdditions.h"
 
 /*
  FIXME: I'm pretty sure this can be greatly improved with NSScanner
@@ -14,7 +15,7 @@
 
 @implementation CTQueryStringParser
 
-- (NSDictionary *)parseQuery:(NSString *)queryString usingEncoding:(NSStringEncoding)encoding {
+- (NSDictionary *)parseQuery:(NSString *)queryString {
 	NSMutableDictionary *maxIndicesCatalog = [NSMutableDictionary dictionary];
 	
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
@@ -34,13 +35,13 @@
 		} else {
 			[encodedKey setString:[pair substringToIndex:eqRange.location]];
 			if ([pair length] > eqRange.location + 1) {
-				value = [[pair substringFromIndex:eqRange.location + 1] stringByReplacingPercentEscapesUsingEncoding:encoding];
+				value = [[pair substringFromIndex:eqRange.location + 1] URLDecodedString];
 			} else {
 				value = @"";
 			}
 		}
 		
-		[self parseKeysFromEncodedString:encodedKey intoArray:keys usingEncoding:encoding indexCatalog:maxIndicesCatalog];
+		[self parseKeysFromEncodedString:encodedKey intoArray:keys indexCatalog:maxIndicesCatalog];
 		
 		[self copyValue:value toDictionary:params usingKeys:keys];
 	}
@@ -48,14 +49,12 @@
 	return params;
 }
 
-- (void)parseKeysFromEncodedString:(NSMutableString *)string intoArray:(NSMutableArray *)array
-					 usingEncoding:(NSStringEncoding)encoding indexCatalog:(NSMutableDictionary *)indexCatalog {
+- (void)parseKeysFromEncodedString:(NSMutableString *)string intoArray:(NSMutableArray *)array indexCatalog:(NSMutableDictionary *)indexCatalog {
 	NSRange braceOpen = [string rangeOfString:@"["];
 	
 	// Parameter contains braces; parse out the key(s)
 	if (NSNotFound != braceOpen.location) {
-		[array addObject:[[string substringToIndex:braceOpen.location]
-						 stringByReplacingPercentEscapesUsingEncoding:encoding]];
+		[array addObject:[[string substringToIndex:braceOpen.location] URLDecodedString]];
 		
 		do {
 			[string deleteCharactersInRange:NSMakeRange(0, braceOpen.location + 1)];
@@ -65,8 +64,7 @@
 				break;
 			}
 			
-			id thisKey = [[string substringToIndex:braceClose.location]
-						  stringByReplacingPercentEscapesUsingEncoding:encoding];
+			id thisKey = [[string substringToIndex:braceClose.location] URLDecodedString];
 			
 			if ([thisKey isEqual:@""]) {
 				NSNumber *currentMaxIndex = [indexCatalog objectForKey:array];
@@ -95,7 +93,7 @@
 			braceOpen = [string rangeOfString:@"["];
 		} while (NSNotFound != braceOpen.location);
 	} else {
-		[array addObject:[string stringByReplacingPercentEscapesUsingEncoding:encoding]];
+		[array addObject:[string URLDecodedString]];
 	}
 }
 

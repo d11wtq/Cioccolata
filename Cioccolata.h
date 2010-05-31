@@ -7,7 +7,8 @@
  *
  */
 
+#import "NSDictionary+CioccolataAdditions.h"
+#import "NSString+CioccolataAdditions.h"
 #import "CTFastCGIAcceptLoop.h"
 #import "NSThread+GNUStep.h"
-#import "NSDictionary+CioccolataAdditions.h"
 #import "CTRequest.h"
