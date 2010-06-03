@@ -3,7 +3,8 @@ Cioccolata - A FastCGI embedded framework for creating web applications in Objec
 
 This project is as yet barely even born, but the intention is to create a simple web-
 application container based around Cocoa, capable of running either on a Mac, on Linux
-via GNUstep or Cocotron, or on Windows via Cocotron.
+via GNUstep or Cocotron, or on Windows via Cocotron.  Initially it will be built to run
+on Mac OS X 10.5 or later, then gradually adapted to run under GNUstep.
 
 I've always questioned why C-based web environments do not exist, and the response
 always seems to be "they're just not very web like".  Well, as an experiment I'd like
@@ -15,18 +16,19 @@ wanted/needed.
 
 With the advent of HipHop (Facebook's PHP to C compiler) it's clear that people are
 looking for more efficient new ways to run applications on the web.  Cioccolata could
-fill that void.
+grow to fill that void.  It needs to be simple to use, but not constraining with
+"Cioccolata-ways-to-do-things".
 
 Initial goals (next few months):
 
-  - Create the controller subsystem on the most flexible way possible
+  - Create the controller subsystem in the most flexible way possible
     - Ruby-like routing
-    - Pre-dispatcher request-filtering
+    - Pre-dispatch hooks
     - Action controllers / ViewControllers
-  - Create an abstraction around MGTemplateEngine to provide a django-like templating
-    system
+  - Create a template engine inspired by django and others held in high regard
     - Template inheritance
-    - Filters
+    - Customizable Filters
+    - Customizable template logic (tags)
     - Clear promotion of separation of concerns
 
 Up-coming goals:
@@ -35,7 +37,7 @@ Up-coming goals:
     - Table inheritance
     - Object-persistence
   - Create a solid data-input and validation framework
-    - I'm still yet to see one that I like but can borrow bits and pieces from others.
+    - I'm still yet to see one that I truly like but can borrow bits and pieces from others.
 
 Once the base framework (each of the M-V-C components is in place, I will build something
 of reasonable scale, designed to support being run in a cloud, using this as a way to
@@ -46,7 +48,3 @@ Biggest issues forseen?
   - Creating the multi-DBMS framework in an abstract manner will be very time-consuming
     - Will keep looking for existing solutions
     - It should be two layers... one for the DB-access, the other for ORM.
-  - Compiling and deployment, given that many web-developers use Windows and deploy to *nix etc
-    - I'd like to come up with a reasonable architecture for cross-compiling with low-effort/
-      understanding required from the developer. Current thoughts simply require Cocotron and
-      an SSH (or other) connection to the target machine.
