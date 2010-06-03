@@ -68,15 +68,15 @@
 						 [[env objectForKey:key] cStringUsingEncoding:NSASCIIStringEncoding]);
 		}
 		
-		NSString *body = [[NSString alloc] initWithData:httpRequest.content encoding:httpRequest.stringEncoding];
+		NSString *body = [[[NSString alloc] initWithData:httpRequest.content encoding:httpRequest.stringEncoding] autorelease];
 		char *cBody = [body cStringUsingEncoding:httpRequest.stringEncoding];
-		[body release];
+		
 		FCGX_FPrintF(cgiRequest.out, "%s", cBody);
 		
 		FCGX_Finish_r(&cgiRequest);
 		
 		// FIXME: It appears an autoreleased object gets released here or something and it crashes
-		//[httpRequest release];
+		[httpRequest release];
 		
 		[pool drain];
 	}

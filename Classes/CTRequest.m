@@ -138,12 +138,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 - (void)dealloc {
 	[env release];
 	[url release];
-	[host release];
-	[path release];
-	[query release];
 	[get release];
-	[ip release];
-	[method release];
 	[charsetName release];
 	[mimeType release];
 	[content release];
