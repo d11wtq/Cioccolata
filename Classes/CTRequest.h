@@ -24,6 +24,7 @@
 	NSString *charsetName;
 	NSString *mimeType;
 	NSStringEncoding stringEncoding;
+	NSData *content;
 	/* TODO:
 	 post
 	 inputStream
@@ -93,7 +94,7 @@
  * @brief	When specified in the request (i.e. during POST, PUT) indicates the charset of the request body.
  *			Note that this will be nil if not set in the request headers.
  * 
- * @see		-stringEncoding
+ * @see		#stringEncoding
  */
 @property (readonly) NSString *charsetName;
 
@@ -110,6 +111,12 @@
  */
 @property (readonly) NSStringEncoding stringEncoding;
 
+/*!
+ * @brief	The bytes from the body, with no interpretation based on the (possible) encoding.
+ * 		This allows binary data to be sent in the request.  If you need a string, you can use NSString#initWithData:encoding: where encoding is CTRequest#stringEncoding.
+ */
+@property (readonly) NSData *content;
+
 
 #pragma mark -
 #pragma mark Initialization methods
@@ -123,6 +130,11 @@
  * Initialize a request using the given environment variables.
  */
 - (id)initWithDictionary:(NSDictionary *)dictionary;
+
+/*!
+ * Initialize a request using the given environment variables and content.
+ */
+- (id)initWithDictionary:(NSDictionary *)dictionary content:(NSData *)data;
 
 
 #pragma mark -

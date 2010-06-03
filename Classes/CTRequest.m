@@ -29,6 +29,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 @synthesize charsetName;
 @synthesize mimeType;
 @synthesize stringEncoding;
+@synthesize content;
 
 - (id)initWithRequest:(CTRequest *)request {
 	return [self initWithDictionary:request.env];
@@ -95,6 +96,17 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 	return self;
 }
 
+- (id)initWithDictionary:(NSDictionary *)dictionary content:(NSData *)data {
+	self = [self initWithDictionary:dictionary];
+	if (!self) {
+		return nil;
+	}
+	
+	content = [data retain];
+	
+	return self;
+}
+
 - (id)param:(NSString *)paramName {
 	id result = [self param:paramName method:@"POST"];
 	if (nil == result) {
@@ -134,6 +146,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 	[method release];
 	[charsetName release];
 	[mimeType release];
+	[content release];
 	[super dealloc];
 }
 

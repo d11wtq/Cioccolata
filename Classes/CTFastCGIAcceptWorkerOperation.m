@@ -34,7 +34,7 @@
 	FCGX_InitRequest(&cgiRequest, 0, 0);
 	
 	for (;;) {
-		NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+		NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
 		
 		NSLock *acceptLock = [[NSLock alloc] init];
 		
@@ -68,7 +68,15 @@
 						 [[env objectForKey:key] cStringUsingEncoding:NSASCIIStringEncoding]);
 		}
 		
+		NSString *body = [[NSString alloc] initWithData:httpRequest.content encoding:httpRequest.stringEncoding];
+		char *cBody = [body cStringUsingEncoding:httpRequest.stringEncoding];
+		[body release];
+		FCGX_FPrintF(cgiRequest.out, "%s", cBody);
+		
 		FCGX_Finish_r(&cgiRequest);
+		
+		// FIXME: It appears an autoreleased object gets released here or something and it crashes
+		//[httpRequest release];
 		
 		[pool drain];
 	}

@@ -36,9 +36,18 @@
 		[envDict setObject:envValue forKey:envName];
 	}
 	
-	self = [self initWithDictionary:envDict];
+	NSMutableData *data = [[NSMutableData alloc] init];
+	
+	char charBuf[1024];
+	int charsRead;
+	while ((charsRead = FCGX_GetStr(charBuf, 1024, request.in)) > 0) {
+		[data appendBytes:charBuf length:charsRead];
+	}
+	
+	self = [self initWithDictionary:envDict content:data];
 	
 	[envDict release];
+	[data release];
 	
 	if (!self) {
 		return nil;

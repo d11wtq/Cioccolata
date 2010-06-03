@@ -397,4 +397,13 @@
 	[req release];
 }
 
+- (void)testRequestContentMatchesContentProvidedDuringInitialization {
+	uint8_t b[] = {'f', 'o', 'o', 'b', 'a', 'r'};
+	NSData *data = [NSData dataWithBytes:b length:6];
+	NSDictionary *dict = [NSDictionary dictionary];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict content:data];
+	GHAssertTrue([data isEqualToData:req.content], @"Request content should be equal to the data given");
+	[req release];
+}
+
 @end
