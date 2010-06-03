@@ -20,7 +20,6 @@
 		NSRange eqRange = [envString rangeOfString:@"="];
 		
 		if (eqRange.location == NSNotFound) {
-			NSLog(@"Malformed string in request env: ignoring [%@]", envString);
 			continue;
 		}
 		
