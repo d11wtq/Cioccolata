@@ -22,7 +22,7 @@
 - (void)testRequestMethodIsInferredFromRequestMethodVariable {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"PUT", @"REQUEST_METHOD", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"PUT", req.method, @"Request method should be copied from REQUEST_METHOD");
+	GHAssertEqualStrings(CTRequestMethodPUT, req.method, @"Request method should be copied from REQUEST_METHOD");
 	[req release];
 }
 
@@ -64,22 +64,22 @@
 - (void)testGETParametersAreParsedFromQueryString {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a%20b&c=3", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"a b", [req param:@"q"], @"Parameter q should be URL-decoded a%20b");
-	GHAssertEqualStrings(@"3", [req param:@"c"], @"Parameter c should be 3");
+	GHAssertEqualStrings(@"a b", [req param:@"q" method:CTRequestMethodGET], @"Parameter q should be URL-decoded a%20b");
+	GHAssertEqualStrings(@"3", [req param:@"c" method:CTRequestMethodGET], @"Parameter c should be 3");
 	[req release];
 }
 
 - (void)testPlusInQueryStringIsDecodedAsSpace {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q=a+b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"a b", [req param:@"q"], @"Parameter q should be URL-decoded a%20b");
+	GHAssertEqualStrings(@"a b", [req param:@"q" method:CTRequestMethodGET], @"Parameter q should be URL-decoded a%20b");
 	[req release];
 }
 
 - (void)testGETParametersCanHaveNamedDictionaryKeys {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo]=a&c=3&q[bar]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:@"bar"], @"Parameter q should be a dictionary with key bar = b");
 	[req release];
@@ -88,7 +88,7 @@
 - (void)testGETParametersWithEmptyBracesAppendNumericalKeysToDictionary {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[]=a&c=3&q[]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:1]], @"Parameter q should be a dictionary with key 1 = b");
 	[req release];
@@ -97,7 +97,7 @@
 - (void)testGETParametersCanExpresslySetNumericalKeysInDictionary {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[]=a&q[7]=b&q[]=c", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	GHAssertEqualStrings(@"a", [q objectForKey:[NSNumber numberWithInt:0]], @"Parameter q should be a dictionary with key 0 = a");
 	GHAssertEqualStrings(@"b", [q objectForKey:[NSNumber numberWithInt:7]], @"Parameter q should be a dictionary with key 7 = b");
 	GHAssertEqualStrings(@"c", [q objectForKey:[NSNumber numberWithInt:8]], @"Parameter q should be a dictionary with key 8 = c");
@@ -107,7 +107,7 @@
 - (void)testMultiDimensionalDictionariesCanBeUsedInQueryString {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[a][][2]=a&q[a][0][]=b", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	NSDictionary *q_A = [q objectForKey:@"a"];
 	NSDictionary *q_A_0 = [q_A objectForKey:[NSNumber numberWithInt:0]];
 	
@@ -119,7 +119,7 @@
 - (void)testSpuriousOpeningBraceInQueryStringIsAccepted {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo[]=a", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo["], @"Parameter q should be a dictionary with key foo[ = a");
 	[req release];
 }
@@ -127,7 +127,7 @@
 - (void)testSpuriousTrailingClosingBraceInQueryStringIsIgnored {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"q[foo]]=a", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	NSDictionary *q = [req param:@"q"];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodGET];
 	GHAssertEqualStrings(@"a", [q objectForKey:@"foo"], @"Parameter q should be a dictionary with key foo = a");
 	[req release];
 }
@@ -135,7 +135,7 @@
 - (void)testSpuriousLeadingAndTrailingBracesInQueryStringAreAccepted {
 	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"]q]=a", @"QUERY_STRING", nil];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict];
-	GHAssertEqualStrings(@"a", [req param:@"]q]"], @"Parameter ]q] should be 'a'");
+	GHAssertEqualStrings(@"a", [req param:@"]q]" method:CTRequestMethodGET], @"Parameter ]q] should be 'a'");
 	[req release];
 }
 
@@ -403,6 +403,43 @@
 	NSDictionary *dict = [NSDictionary dictionary];
 	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict content:data];
 	GHAssertTrue([data isEqualToData:req.content], @"Request content should be equal to the data given");
+	[req release];
+}
+
+- (void)testRequestPostDataIsParsedFromX_Www_Form_UrlEncodedContent {
+	char *body = "foo=bar&x=a%20b";
+	NSData *data = [NSData dataWithBytes:body length:strlen(body)];
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/x-www-form-urlencoded", @"HTTP_CONTENT_TYPE",
+						  @"POST", @"REQUEST_METHOD", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict content:data];
+	GHAssertEqualStrings(@"bar", [req param:@"foo" method:CTRequestMethodPOST], @"POST var foo should equal 'bar'");
+	GHAssertEqualStrings(@"a b", [req param:@"x" method:CTRequestMethodPOST], @"POST var x should equal 'a b'");
+	[req release];
+}
+
+- (void)testRequestComplexDictionaryPostDataIsParsedFromX_Www_Form_UrlEncodedContent {
+	char *body = "q[a][][2]=a&q[a][0][]=b";
+	NSData *data = [NSData dataWithBytes:body length:strlen(body)];
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/x-www-form-urlencoded", @"HTTP_CONTENT_TYPE",
+						  @"POST", @"REQUEST_METHOD", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict content:data];
+	NSDictionary *q = [req param:@"q" method:CTRequestMethodPOST];
+	NSDictionary *q_A = [q objectForKey:@"a"];
+	NSDictionary *q_A_0 = [q_A objectForKey:[NSNumber numberWithInt:0]];
+	
+	GHAssertEqualStrings(@"a", [q_A_0 objectForKey:[NSNumber numberWithInt:2]], @"Parameter q should be a dictionary with key [a][0][2] = a");
+	GHAssertEqualStrings(@"b", [q_A_0 objectForKey:[NSNumber numberWithInt:3]], @"Parameter q should be a dictionary with key [a][0][3] = b");
+	[req release];
+}
+
+- (void)testPOSTParametersCanBeAccesedAsADictionary {
+	char *body = "q=a%20b&c=3";
+	NSData *data = [NSData dataWithBytes:body length:strlen(body)];
+	NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:@"application/x-www-form-urlencoded", @"HTTP_CONTENT_TYPE",
+						  @"POST", @"REQUEST_METHOD", nil];
+	CTRequest *req = [[CTRequest alloc] initWithDictionary:dict content:data];
+	GHAssertEqualStrings(@"a b", [req.post objectForKey:@"q"], @"Parameter q should be URL-decoded a%20b");
+	GHAssertEqualStrings(@"3", [req.post objectForKey:@"c"], @"Parameter c should be 3");
 	[req release];
 }
 

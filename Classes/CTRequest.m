@@ -24,6 +24,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 @synthesize query;
 @synthesize isSSL;
 @synthesize get;
+@synthesize post;
 @synthesize ip;
 @synthesize method;
 @synthesize charsetName;
@@ -104,20 +105,33 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 	
 	content = [data retain];
 	
+	NSRange urlEncodedRange = [[self headerWithName:@"Content-Type"] rangeOfString:@"application/x-www-form-urlencoded"];
+	if (urlEncodedRange.location != NSNotFound) {
+		NSString *contentString = [[NSString alloc] initWithData:content encoding:self.stringEncoding];
+		post = [[NSDictionary alloc] initByParsingQueryString:contentString];
+		[contentString release];
+	}
+	
 	return self;
 }
 
 - (id)param:(NSString *)paramName {
-	id result = [self param:paramName method:@"POST"];
+	id result = [self param:paramName method:CTRequestMethodPOST];
 	if (nil == result) {
-		result = [self param:paramName method:@"GET"];
+		result = [self param:paramName method:CTRequestMethodGET];
 	}
 	
 	return result;
 }
 
-- (id)param:(NSString *)paramName method:(NSString *)method {
-	return [self.get objectForKey:paramName];
+- (id)param:(NSString *)paramName method:(NSString *)methodName {
+	if ([methodName isEqualToString:CTRequestMethodGET]) {
+		return [get objectForKey:paramName];
+	} else if ([methodName isEqualToString:CTRequestMethodPOST]) {
+		return [post objectForKey:paramName];
+	} else {
+		@throw [NSException exceptionWithName:@"InvalidRequestMethodException" reason:@"Invalid request method" userInfo:nil];
+	}
 }
 
 - (NSString *)headerWithName:(NSString *)headerName {
@@ -128,7 +142,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 
 - (NSStringEncoding)stringEncodingFromCharsetName:(NSString *)name {
 	if (charsetLookupTable == nil) {
-		// This way live on the heap forever.  It's a deliberate optimization.
+		// This will live on the heap forever.  It's a deliberate optimization.
 		charsetLookupTable = [[CTStringEncodingLookupTable alloc] initWithDefaultEncoding:NSUTF8StringEncoding];
 	}
 	
@@ -139,6 +153,7 @@ static CTStringEncodingLookupTable *charsetLookupTable = nil;
 	[env release];
 	[url release];
 	[get release];
+	[post release];
 	[charsetName release];
 	[mimeType release];
 	[content release];

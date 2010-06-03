@@ -6,6 +6,31 @@
 //  Copyright 2010 Chris Corbyn. All rights reserved.
 //
 
+/*!
+ * Used for GET requests.
+ */
+#define CTRequestMethodGET @"GET"
+
+/*!
+ * Used for POST requests.
+ */
+#define CTRequestMethodPOST @"POST"
+
+/*!
+ * Used for POST requests.
+ */
+#define CTRequestMethodPUT @"PUT"
+
+/*!
+ * Used for DELETE requests.
+ */
+#define CTRequestMethodDELETE @"DELETE"
+
+/*!
+ * Used for HEAD requests.
+ */
+#define CTRequestMethodHEAD @"HEAD"
+
 
 /*!
  * An HTTP request received from the client.
@@ -19,6 +44,7 @@
 	NSString *query;
 	BOOL isSSL;
 	NSDictionary *get;
+	NSDictionary *post;
 	NSString *ip;
 	NSString *method;
 	NSString *charsetName;
@@ -26,7 +52,6 @@
 	NSStringEncoding stringEncoding;
 	NSData *content;
 	/* TODO:
-	 post
 	 inputStream
 	 files
 	 cookies
@@ -77,6 +102,11 @@
  * The full list of GET parameters, which may be multi-dimensional in structure.
  */
 @property (readonly) NSDictionary *get;
+
+/*!
+ * The full list of POST parameters, which may be multi-dimensional in structure.
+ */
+@property (readonly) NSDictionary *post;
 
 /*!
  * @brief	The IP address of the client connecting to the server.
@@ -157,7 +187,7 @@
  * 
  * @return	Usually an NSString or an NSDictionary.  Returns nil if the parameter does not exist.
  */
-- (id)param:(NSString *)paramName method:(NSString *)method;
+- (id)param:(NSString *)paramName method:(NSString *)methodName;
 
 /*!
  * @brief	Get the value of the request header, or nil if not set.
